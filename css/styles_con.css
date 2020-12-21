@@ -1,0 +1,129 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26 févr. 2020, 15:49:35
+    Author     : TogbeMaurras
+*/
+footer{
+    height: 100px;
+    background-color: beige;
+    align-items: center;
+}
+#banniere{
+    height: 200px;
+}
+#body_con
+{
+    background-image: url("../images/Polytech_Tours_Portalis.jpg");
+    background-attachment: fixed;
+    background-repeat: repeat;
+    
+}
+#frm_connexion
+{
+    align-items: center;
+    background-color: honeydew;
+    border-bottom: 5px red double;
+    border-top: 5px blue groove;
+    border-right: 5px yellow outset;
+    border-left: 5px bisque inset;
+    margin: 25px 150px 75px 150px;
+}
+#lbl_connexion
+{
+    color: blue;
+    font-size: 30px;
+    font-family: "Comic Sans MS";
+    font-weight: bold;
+    text-shadow: 2px 5px 3px brown;
+}
+#btn_reset:hover{
+    border-radius: 50px 50px 50px 50px;
+}
+#btn_login:hover{
+    border-radius: 100px;
+}
+
+.ma_class_button{
+    height: 50px;
+    width: 100px;
+    border-radius: 10px 50px 10px 50px;
+}
+.imageflottante
+{
+    float: right;
+    clear: both;
+}
+.texte_design{
+    color: red;
+    font-family: fantasy;
+    font-size: 20px;
+    font-weight: bold; 
+}
+
+*
+{
+    color: black;
+    text-align: center;
+}
+
+h1 a
+{
+    color: blueviolet;
+    text-decoration: underline;
+}
+h2 a
+{
+    color: darkviolet;
+    text-decoration: line-through;
+}
+form > input, form > label
+{
+    font-family: Arial, "Times New Roman", monospace, serif, "sans-serif";
+    font-size: large;
+    box-shadow: -1px 2px 2px 3px red;
+    margin: 5px 10px 5px 10px;
+    padding: 5px;
+    /*border-radius: 20px;*/
+}
+form > label
+{
+    width: 200px;
+}
+form > input:hover
+{
+    color: orangered;
+}
+#txt_login:hover, #txt_password:hover
+{
+    color: blue;
+}
+h2
+{
+    font-style: oblique;
+    text-align: center;
+}
+h1
+{
+    font-style: italic;
+    text-align: center;
+}
+a:link
+{
+    color: background;
+}
+a:visited
+{
+    color: chartreuse;
+}
+a:active
+{
+    color: bisque;
+}
+a:hover
+{
+    color: blue;
+}
