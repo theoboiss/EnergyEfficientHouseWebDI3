@@ -22,6 +22,10 @@ SET time_zone = "+00:00";
 -- Base de données :  `projet`
 --
 
+DROP DATABASE IF EXISTS `maison_econome`;
+CREATE DATABASE `maison_econome`;
+USE `maison_econome`;
+
 -- --------------------------------------------------------
 
 --
