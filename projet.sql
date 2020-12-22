@@ -324,7 +324,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `Id_Utilisateur` int(11) NOT NULL AUTO_INCREMENT,
   `nomUser` varchar(30) NOT NULL,
   `emailUtilisateur` varchar(50) DEFAULT NULL,
-  `telUtilisateur` int(11) DEFAULT NULL,
+  `telUtilisateur` varchar(10) DEFAULT NULL,
   `prenomUtilisateur` varchar(30) NOT NULL,
   `ageUtilisateur` int(11) NOT NULL,
   `dateCreationCompte` date DEFAULT NULL,
