@@ -1,5 +1,5 @@
 <?php
-/** */
+
 /**
  * MVC :
  * - index.php : identifie le routeur à appeler en fonction de l'url
@@ -7,7 +7,8 @@
  * - Modèle : contient les fonctions liées à la BDD et appelées par les contrôleurs
  * - Vue : contient ce qui doit être affiché
  **/
-/** test */
+
+
 // Activation des erreurs
 ini_set('display_errors', 1);
 
