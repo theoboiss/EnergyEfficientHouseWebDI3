@@ -1,5 +1,7 @@
 USE `maison_econome`;
 
+-- Insertions de Théo
+
 INSERT INTO `region` (nomRegion) VALUES ("Bretagne");
 
 INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Finistere", 1);
@@ -43,6 +45,90 @@ INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) 
 INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('2020-01-01', '2020-12-31', 1, 1);
 
 INSERT INTO `proprietaire` (dateDebutPropriete,dateFinPropriete, Id_Maison, Id_Utilisateur) VALUES ('2020-01-01', '2020-12-31', 1, 1);
+
+-- Insertions de Sarah
+
+INSERT INTO `region` (nomRegion) VALUES ("Centre Val de Loire");
+
+INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Indre et Loire", 2);
+
+INSERT INTO `ville` (code_postal, nom_ville, Id_Departement) VALUES (37100, "Tours", 2);
+
+INSERT INTO `adresse` (numMaison, rue, Id_Ville) VALUES (14, "Rue des Perruches", 2);
+
+INSERT INTO `maison` (nomMaison, degreIsolation, evaluationBase, Id_Adresse) VALUES ("Ma maison de campagne", 25, 67, 2);
+
+INSERT INTO `type_appartement` (libelle_type_appartement) VALUES ("T4");
+
+INSERT INTO `appartement` (degreSecuriteAppartement, libelleAppartement, Id_Maison, Id_Type_Appartement) VALUES (60, "Les hirondelles", 2, 2);
+
+INSERT INTO `type_piece` (libelle_type_piece) VALUES ("Chambre");
+
+INSERT INTO `piece` (libellePiece, Id_Type_Piece, Id_Appartement) VALUES ("Chambre des ados", 2, 2);
+
+INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "eau", "eau", 10, 8);
+
+INSERT INTO `ressources` (Id_Matiere) VALUES (3);
+
+INSERT INTO `type_appareil` (nomTypeAppareil) VALUES ("Chauffe eau");
+
+INSERT INTO `appareil` (lieuAppareil, libelleAppareil, videoAppareil, Id_Piece, Id_Type_Appareil) VALUES ("Dans le coin face à la porte", "Chauffe eau", NULL, 2, 2);
+
+INSERT INTO `consoAppareil` (consommation, Id_Appareil, Id_Matiere) VALUES (4, 2, 1);
+
+INSERT INTO `substance` (Id_Matiere) VALUES (3);
+
+INSERT INTO `emissionAppareil` (emission, Id_Appareil, Id_Matiere) VALUES (2, 2, 3);
+
+INSERT INTO `utilisateur` (nomUser, emailUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Sa37", "SabrinaG@gmail.com", "0250558760", "Sabrina", 39, '2020-12-23', "actif");
+
+INSERT INTO `doit_contenir` (Id_Type_Piece, Id_Type_Appartement) VALUES (2, 2);
+
+INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) VALUES ('2020-01-01', '2020-11-31', 2);
+
+INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('2020-02-01', '2020-10-31', 2, 2);
+
+INSERT INTO `proprietaire` (dateDebutPropriete,dateFinPropriete, Id_Maison, Id_Utilisateur) VALUES ('2020-01-01', '2020-12-31', 2, 2);
+
+INSERT INTO `region` (nomRegion) VALUES ("Grand Est");
+
+INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Ardennes", 3);
+
+INSERT INTO `ville` (code_postal, nom_ville, Id_Departement) VALUES (08501, "Charleville mezieres", 3);
+
+INSERT INTO `adresse` (numMaison, rue, Id_Ville) VALUES (4, "Rue des pirates", 3);
+
+INSERT INTO `maison` (nomMaison, degreIsolation, evaluationBase, Id_Adresse) VALUES ("The haunted House", 80, 80, 3);
+
+INSERT INTO `type_appartement` (libelle_type_appartement) VALUES ("T3");
+
+INSERT INTO `appartement` (degreSecuriteAppartement, libelleAppartement, Id_Maison, Id_Type_Appartement) VALUES (40, "Coffre fort", 3, 3);
+
+INSERT INTO `type_piece` (libelle_type_piece) VALUES ("Salle de jeux");
+
+INSERT INTO `piece` (libellePiece, Id_Type_Piece, Id_Appartement) VALUES ("Salle de jeux des enfants", 3, 3);
+
+INSERT INTO `type_appareil` (nomTypeAppareil) VALUES ("Veilleuse");
+
+INSERT INTO `appareil` (lieuAppareil, libelleAppareil, videoAppareil, Id_Piece, Id_Type_Appareil) VALUES ("A cote de la porte", "Veilleuse verte", NULL, 3, 3);
+
+INSERT INTO `consoAppareil` (consommation, Id_Appareil, Id_Matiere) VALUES (1, 3, 1);
+
+INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "lumière", "Lumiere", 6, 5);
+
+INSERT INTO `substance` (Id_Matiere) VALUES (4);
+
+INSERT INTO `emissionAppareil` (emission, Id_Appareil, Id_Matiere) VALUES (5, 3, 4);
+
+INSERT INTO `utilisateur` (nomUser, emailUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Antoine", "Antoine@gmail.com", "0250274560", "Antoine", 24, '2018-05-22', "inactif");
+
+INSERT INTO `doit_contenir` (Id_Type_Piece, Id_Type_Appartement) VALUES (3, 3);
+
+INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) VALUES ('2020-01-05', '2020-01-06', 3);
+
+INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('2020-01-01', '2020-02-31', 3, 3);
+
+INSERT INTO `proprietaire` (dateDebutPropriete,dateFinPropriete, Id_Maison, Id_Utilisateur) VALUES ('2015-01-01', '2020-12-31', 3, 3);
 
 /*
 -- --------------------------------------------------------
