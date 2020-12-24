@@ -1,7 +1,5 @@
 USE `maison_econome`;
 
--- Insertions de Théo
-
 INSERT INTO `region` (nomRegion) VALUES ("Bretagne");
 INSERT INTO `region` (nomRegion) VALUES ("Centre Val de Loire");
 INSERT INTO `region` (nomRegion) VALUES ("Grand Est");
