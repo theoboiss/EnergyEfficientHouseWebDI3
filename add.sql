@@ -1,48 +1,72 @@
 USE `maison_econome`;
 
 INSERT INTO `region` (nomRegion) VALUES ("Bretagne");
+INSERT INTO `region` (nomRegion) VALUES ("Centre-Val de Loire");
 
 INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Finistere", 1);
+INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Indre-et-Loire", 2);
 
 INSERT INTO `ville` (code_postal, nom_ville, Id_Departement) VALUES (29200, "Brest", 1);
+INSERT INTO `ville` (code_postal, nom_ville, Id_Departement) VALUES (37000, "Tours", 2);
 
 INSERT INTO `adresse` (numMaison, rue, Id_Ville) VALUES (69, "Rue Bobo", 1);
+INSERT INTO `adresse` (numMaison, rue, Id_Ville) VALUES (25, "Rue des Minimes", 2);
 
-INSERT INTO `maison` (nomMaison, degreIsolation, evaluationBase, Id_Adresse) VALUES ("La Petite Maison Dans La Prairie", 15, 10, 1);
+INSERT INTO `maison` (nomMaison, degreIsolation, evaluationBase, Id_Adresse) VALUES ("La Petite Maison Dans La Prairie", 15, 5, 1);
+INSERT INTO `maison` (nomMaison, degreIsolation, evaluationBase, Id_Adresse) VALUES ("Hotel de Ville de Tours", 85, 50, 2);
 
 INSERT INTO `type_appartement` (libelle_type_appartement) VALUES ("T2");
+INSERT INTO `type_appartement` (libelle_type_appartement) VALUES ("Salle polyvalente"); -- c'est le type d'une salle des fetes et peut etre loue
 
 INSERT INTO `appartement` (degreSecuriteAppartement, libelleAppartement, Id_Maison, Id_Type_Appartement) VALUES (40, "Porte 404", 1, 1);
+INSERT INTO `appartement` (degreSecuriteAppartement, libelleAppartement, Id_Maison, Id_Type_Appartement) VALUES (95, "Salle des fetes", 2, 2);
 
 INSERT INTO `type_piece` (libelle_type_piece) VALUES ("Salle d'eau");
+INSERT INTO `type_piece` (libelle_type_piece) VALUES ("Salle polyvalente");
 
 INSERT INTO `piece` (libellePiece, Id_Type_Piece, Id_Appartement) VALUES ("Salle de bain des enfants", 1, 1);
+INSERT INTO `piece` (libellePiece, Id_Type_Piece, Id_Appartement) VALUES ("Salle des fêtes de l'Hotel de ville", 2, 2);
 
+-- Ressources
 INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "electricite", "Energie electrique", 9, 5);
+INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 20, "essence", "Hydrocarbure", 15, 5);
 
 INSERT INTO `ressources` (Id_Matiere) VALUES (1);
+INSERT INTO `ressources` (Id_Matiere) VALUES (2);
 
 INSERT INTO `type_appareil` (nomTypeAppareil) VALUES ("Chauffage");
+INSERT INTO `type_appareil` (nomTypeAppareil) VALUES ("Eclairage");
 
-INSERT INTO `appareil` (lieuAppareil, libelleAppareil, videoAppareil, Id_Piece, Id_Type_Appareil) VALUES ("Sous la fenetre", "Radiateur electrique", NULL, 1, 1);
+INSERT INTO `appareil` (lieuAppareil, libelleAppareil, videoAppareil, Id_Piece, Id_Type_Appareil) VALUES ("Pret de la fenetre", "Radiateur electrique", NULL, 1, 1);
+INSERT INTO `appareil` (lieuAppareil, libelleAppareil, videoAppareil, Id_Piece, Id_Type_Appareil) VALUES ("Au plafond", "Plafonnier", NULL, 2, 2);
 
-INSERT INTO `consoAppareil` (consommation, Id_Appareil, Id_Matiere) VALUES (2, 1, 1);
+INSERT INTO `consoAppareil` (consommation, Id_Appareil, Id_Matiere) VALUES (6, 1, 1);
+INSERT INTO `consoAppareil` (consommation, Id_Appareil, Id_Matiere) VALUES (3, 2, 1);
 
+-- Substances
 INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "chaleur", "Chaleur", 9, 5);
+INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "CO2", "Gaz a effet de serre", 4, 0);
 
-INSERT INTO `substance` (Id_Matiere) VALUES (2);
+INSERT INTO `substance` (Id_Matiere) VALUES (3); -- a incrementer à chaque nouvelle ressources (il faudra faire un trigger)
+INSERT INTO `substance` (Id_Matiere) VALUES (4);
 
-INSERT INTO `emissionAppareil` (emission, Id_Appareil, Id_Matiere) VALUES (2, 1, 2);
+INSERT INTO `emissionAppareil` (emission, Id_Appareil, Id_Matiere) VALUES (5, 1, 3); -- a incrementer à chaque nouvelle ressources (il faudra faire un trigger)
+INSERT INTO `emissionAppareil` (emission, Id_Appareil, Id_Matiere) VALUES (1, 2, 3);
 
-INSERT INTO `utilisateur` (nomUser, emailUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Bernou", "bernardu29@gmail.com", "0250674560", "Bernard", 47, '2020-12-22', "actif");
+INSERT INTO `utilisateur` (nomUser, emailUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Bernou", "bernardu29@gmail.com", "0250674560", "Bernard", 47, '2019-12-22', "actif");
+INSERT INTO `utilisateur` (nomUser, emailUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Boulu", "hugoboss37@gmail.com", "0610118218", "Hugo", 25, '2019-09-15', "inactif");
 
 INSERT INTO `doit_contenir` (Id_Type_Piece, Id_Type_Appartement) VALUES (1, 1);
+INSERT INTO `doit_contenir` (Id_Type_Piece, Id_Type_Appartement) VALUES (2, 2);
 
-INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) VALUES ('2020-01-01', '2020-12-31', 1);
+INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) VALUES ('2020-01-01 07-32-50', '2020-01-04 19-40-31', 1);
+INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) VALUES ('2020-01-07 07-41-02', '2020-01-13 14-22-08', 1);
 
-INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('2020-01-01', '2020-12-31', 1, 1);
+INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('1995-03-12', '2019-05-30', 1, 1);
+INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('2019-06-20', '2020-01-25', 1, 2);
 
-INSERT INTO `proprietaire` (dateDebutPropriete,dateFinPropriete, Id_Maison, Id_Utilisateur) VALUES ('2020-01-01', '2020-12-31', 1, 1);
+INSERT INTO `proprietaire` (dateDebutPropriete,dateFinPropriete, Id_Maison, Id_Utilisateur) VALUES ('2016-01-01', NULL, 1, 1);
+INSERT INTO `proprietaire` (dateDebutPropriete,dateFinPropriete, Id_Maison, Id_Utilisateur) VALUES ('1995-03-12', '2006-07-30', 1, 1); -- je n'allais quand meme pas dire que bernardu29 possédait la mairie
 
 /*
 -- --------------------------------------------------------
