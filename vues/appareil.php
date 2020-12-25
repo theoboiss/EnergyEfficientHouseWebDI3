@@ -44,3 +44,4 @@
 
 <?php echo AfficheAlerte($alerte); ?>
 
+<a href="index.php">Accueil</a></p>
