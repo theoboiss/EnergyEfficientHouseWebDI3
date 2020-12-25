@@ -19,11 +19,11 @@
 	</thead>
 	<tbody>	
 	
-    <?php foreach ($liste as $element) { ?>
+    <?php foreach ($afficherAppareils as $element) { ?>
     
         <tr> 
             <td>
-		<?php echo $element['Id_Appareil']; ?>
+		    <?php echo $element['Id_Appareil']; ?>
             </td>
             <td>
         	<?php echo $element['libelleAppareil']; ?>

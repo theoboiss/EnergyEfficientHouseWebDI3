@@ -31,6 +31,12 @@ switch ($function) {
         $title = "Paramétrage du site";
         $entete = "Paramétrage des entités";
         break;
+
+    case 'afficherAppareils'
+        $vue = "appareil";
+        $title = "Mes Appareils";
+        $entete = "Voici la liste de vos appareils :";
+        break;
         
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
