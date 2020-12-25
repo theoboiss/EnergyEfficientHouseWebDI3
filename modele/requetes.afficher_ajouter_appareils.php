@@ -9,19 +9,17 @@ include("modele/connexion.php");
  * @param mysqli_ $bdd
  * @return array
  */
-function afficherAppareils(mysqli $bdd): array {
+function afficherAppareils(mysqli $bdd) {
     
-    $statement = $bdd->prepare('SELECT *
+    $query = 'SELECT *
                                 FROM appareil NATURAL JOIN piece
                                 WHERE Id_Piece IN (SELECT Id_Piece
                                                    FROM piece NATURAL JOIN appartement
                                                    WHERE Id_Appartement IN (SELECT Id_Appartement
                                                                             FROM appartement NATURAL JOIN locataire
-                                                                            WHERE Id_Utilisateur = 2))');
+                                                                            WHERE Id_Utilisateur = 2))';
     
-    $statement->execute();
-    
-    return $statement->fetchAll();
+    return mysqli_query($bdd, $query);
     
 }
 
@@ -49,5 +47,5 @@ function insertionAppareil(mysqli $bdd, array $values): bool {
     //return mysqli_insert_id(mysqli_query($bdd, $query)) != 0 ? true : false;
     return mysqli_query($bdd, $query) != false ? true : false;
 }
-
-?>*/
+*/
+?>
