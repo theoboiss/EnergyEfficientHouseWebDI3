@@ -41,7 +41,25 @@ function recherche(mysqli $bdd, string $table, array $attributs): array {
     $statement->execute();
     
     return $statement->fetchAll();
+}
+
+function compte(mysqli $bdd, string $table, array $attributs): array {
     
+    $where = "";
+    foreach($attributs as $key => $value) {
+        $where .= "$key = :$key" . ", ";
+    }
+    $where = substr_replace($where, '', -2, 2);
+    
+    $statement = $bdd->prepare('SELECT COUNT(*) FROM ' . $table . ' WHERE ' . $where);
+    
+    
+    foreach($attributs as $key => $value) {
+        $statement->bindParam(":$key", $value);
+    }
+    $statement->execute();
+    
+    return $statement->fetchAll();
 }
 
 /**
