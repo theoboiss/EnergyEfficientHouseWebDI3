@@ -29,8 +29,8 @@ function afficherAppareils(mysqli $bdd) {
  * @param array $values
  * @return boolean
  */
-/*
-function insertionAppareil(mysqli $bdd, array $values): bool {
+
+function ajoutAppareil(mysqli $bdd, array $values): bool {
 
     $attributs = '';
     $valeurs = '';
@@ -47,5 +47,5 @@ function insertionAppareil(mysqli $bdd, array $values): bool {
     //return mysqli_insert_id(mysqli_query($bdd, $query)) != 0 ? true : false;
     return mysqli_query($bdd, $query) != false ? true : false;
 }
-*/
+
 ?>

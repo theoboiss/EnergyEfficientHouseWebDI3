@@ -33,6 +33,39 @@ switch ($function) {
         }
         
         break;
+
+    case 'ajoutAppareil':
+        //Ajouter une nouvel appareil
+        
+        $title = "Ajouter un appareil";
+        $vue = "ajout_appareil";
+        $alerte = false;
+              
+        // Cette partie du code est appelée si le formulaire a été posté
+        
+        if (isset($_POST['libelle'])) {
+            
+            if( !estUneChaine($_POST['libelle'])) {
+                $alerte = "Le libellé de la région doit être une chaîne de caractère.";
+                
+            } else {
+                
+                $values =  [
+                    'libelleAppareil' => $_POST['libelle']
+                ];
+                
+                // Appel à la BDD à travers une fonction du modèle.
+                $ajoutAppareil = ajoutAppareil($bdd, $values);
+                
+                if ($retour) {
+                    $alerte = "Ajout réussie";
+                } else {
+                    $alerte = "L'ajout dans la BDD n'a pas fonctionné";
+                }
+            }
+        }
+        
+        break;
         
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET

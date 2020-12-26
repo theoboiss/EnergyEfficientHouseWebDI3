@@ -12,12 +12,12 @@
     <input type="text" id="id_libelle"  name="libelle" 
            placeholder="Entrez le libellé" required=""/>
     
-    <label for="id_region">Région :</label>
-    <select id="id_idRegion" name="idRegion" required="">
+    <label for="Id_Appartement">Appartement</label>
+    <select id="Id_Appartement" name="Id_Appartement" required="">
         <option value="default">Choisissez</option>
         <?php  
-            foreach ($liste as $element) { 
-                echo '<option value="'.$element['idRegion'].'">'.$element['LibRegion'].'</option>';
+            foreach ($ajoutAppareil as $element) { 
+                echo '<option value="'.$element['Id_Appartement'].'">'.$element['libelleAppartement'].'</option>';
             }
         ?>
     </select>
@@ -26,4 +26,4 @@
 
 </form>
 
-<p><a href="index.php?cible=departement">Retour</a> | <a href="index.php">Accueil</a></p>
+<p><a href="index.php">Accueil</a></p>
