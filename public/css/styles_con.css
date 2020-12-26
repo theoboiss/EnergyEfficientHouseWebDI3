@@ -7,6 +7,23 @@ and open the template in the editor.
     Created on : 26 févr. 2020, 15:49:35
     Author     : TogbeMaurras
 */
+
+.appareil_table {
+    background-color: aqua;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.appareil_td {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
 footer{
     height: 100px;
     background-color: beige;

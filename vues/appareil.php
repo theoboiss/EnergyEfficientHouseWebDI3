@@ -4,44 +4,55 @@
 */
 ?>
 
-<p><?php echo $entete; ?></p>
+<!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <meta charset="UTF-8" />
+            <link rel="stylesheet" href="public/css/styles_con.css"/>
+        </head>
+
+    <body>
+
+        <p><?php echo $entete; ?></p>
 
 
-<table>
-	<thead>
-		<tr>
+        <table class="appareil_table">
+        	<thead>
+        		<tr>
 
-			<th>Identifiant</th>
-			<th>Libellé</th>
-			<th>Pièce</th>
-            <th>Appartement</th>
-		</tr>
-	</thead>
-	<tbody>	
-	
-    <?php foreach ($afficherAppareils as $element) { ?>
-    
-        <tr> 
-            <td>
-		    <?php echo $element['Id_Appareil']; ?>
-            </td>
-            <td>
-        	<?php echo $element['libelleAppareil']; ?>
-            </td>
-            <td>
-        	<?php echo $element['Id_Piece']; ?>
-            </td>
-            <td>
-            <?php echo $element['Id_Appartement']; ?>
-            </td>
-        </tr>
-    
-    <?php } ?>
+        			<th class="appareil_td">Identifiant</th>
+        			<th class="appareil_td">Libellé</th>
+        			<th class="appareil_td">Pièce</th>
+                    <th class="appareil_td">Appartement</th>
+        		</tr>
+        	</thead>
+        	<tbody>	
+        	
+            <?php foreach ($afficherAppareils as $element) { ?>
+            
+                <tr> 
+                    <td class="appareil_td">
+        		    <?php echo $element['Id_Appareil']; ?>
+                    </td>
+                    <td class="appareil_td">
+                	<?php echo $element['libelleAppareil']; ?>
+                    </td>
+                    <td class="appareil_td">
+                	<?php echo $element['Id_Piece']; ?>
+                    </td>
+                    <td class="appareil_td">
+                    <?php echo $element['Id_Appartement']; ?>
+                    </td>
+                </tr>
+            
+            <?php } ?>
 
-	</tbody>
-</table>
+        	</tbody>
+        </table>
 
 
-<?php echo AfficheAlerte($alerte); ?>
+        <?php echo AfficheAlerte($alerte); ?>
 
-<a href="index.php">Accueil</a></p>
+        <p><a href="index.php">Accueil</a></p>
+    </body>
+</html>
