@@ -8,12 +8,11 @@
 include('requetes.generiques.php');
 
 //on définit le nom de la table
-$table = "utilisateur";
 
 
 
-function utilisateurExiste($bdd, $nomUser) int {
-    $nbUtilisateurs = count($bdd, $table, $nomUser);
+function utilisateurExiste($bdd, $nomUser): int {
+    $nbUtilisateurs = mycount($bdd, 'utilisateur', ['nomUser' => $nomUser]);
 
     if ($nbUtilisateurs <= 0) {
         return 0;
@@ -27,12 +26,12 @@ function utilisateurExiste($bdd, $nomUser) int {
 }
 
 function connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur): int {
-    $nbUtilisateurs = count($bdd, $table, array($nomUser, $mdpUtilisateur);
+    $nbUtilisateurs = mycount($bdd, 'utilisateur', ['nomUser' => $nomUser, 'mdpUtilisateur' => $mdpUtilisateur]);
     
     if ($nbUtilisateurs <= 0) {
         return 0;
     }
-    else if ($nbUtilisateurs = 1 {
+    else if ($nbUtilisateurs = 1) {
         return 1;
     }
     else {
@@ -41,7 +40,7 @@ function connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur): int {
 }
 
 function insererUtilisateurDDB($bdd, $nomUser, $mdpUtilisateur) {
-    insertion();
+    insertion($bdd, 'utilisateur', ['nomUser' => $nomUser, 'mdpUtilisateur' => $mdpUtilisateur]);
 }
 
 

@@ -3,7 +3,7 @@
 // requêtes génériques pour récupérer les données de la BDD
 
 // Appel du fichier déclarant mysqli_
-include("modele/connexion.php"); 
+include("connexion.php"); 
 
 /**
  * Récupère tous les éléments d'une table
@@ -43,7 +43,7 @@ function recherche(mysqli $bdd, string $table, array $attributs): array {
     return $statement->fetchAll();
 }
 
-function compte(mysqli $bdd, string $table, array $attributs): array {
+function mycount(mysqli $bdd, string $table, array $attributs): int {
     
     $where = "";
     foreach($attributs as $key => $value) {
@@ -53,13 +53,15 @@ function compte(mysqli $bdd, string $table, array $attributs): array {
     
     $statement = $bdd->prepare('SELECT COUNT(*) FROM ' . $table . ' WHERE ' . $where);
     
-    
-    foreach($attributs as $key => $value) {
-        $statement->bindParam(":$key", $value);
+    if (isset($statement) && !empty($statement))
+    {
+        foreach($attributs as $key => $value) {
+            $statement->bindParam(":$key", $value);
+        }
+        $statement->execute();
+        return $statement->fetchAll();
     }
-    $statement->execute();
-    
-    return $statement->fetchAll();
+    return 0;
 }
 
 /**
@@ -69,7 +71,7 @@ function compte(mysqli $bdd, string $table, array $attributs): array {
  * @param string $table
  * @return boolean
  */
-function insertion(mysqli $bdd, array $values, string $table): bool {
+function insertion(mysqli $bdd, string $table, array $values): bool {
 
     $attributs = '';
     $valeurs = '';

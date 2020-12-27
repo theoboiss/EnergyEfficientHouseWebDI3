@@ -5,18 +5,19 @@
  */
 
 // on inclut le fichier modèle contenant les appels à la BDD
-include('./modele/requetes.connexion_inscription_user.php');
+include('../modele/requetes.connexion_inscription_user.php');
 
-
-if (!isset($_GET['submit']) || empty($_GET['submit'])) {
+if (!isset($_POST['submit']) || empty($_POST['submit'])) {
     $function = "";
     $alerte = "Veuillez vous connecter ou vous créer un compte";
-} else if () (!isset($_POST['nomUser']) || empty($_POST['nomUser'])) || (!isset($_POST['mdpUtilisateur']) || empty($_POST['mdpUtilisateur'])) ) {
+} else if (!isset($_POST['nomUser']) || empty($_POST['nomUser']) || !isset($_POST['mdpUtilisateur']) || empty($_POST['mdpUtilisateur']) ) {
     $function = "";
     $alerte = "Nom d'utilisateur ou mot de passe incorrect";
 } else {
-    $function = $_GET['fonction'];
+    $function = $_POST['submit'];
     $alerte = "";
+    $nomUser = $_POST['nomUser'];
+    $mdpUtilisateur = $_POST['mdpUtilisateur'];
 
     switch (utilisateurExiste($bdd, $nomUser)) {
         case 1:
@@ -29,10 +30,12 @@ if (!isset($_GET['submit']) || empty($_GET['submit'])) {
                     if (!$valide) {
                         $alerte = "Mot de passe incorrect";
                     }
+                    break;
 
                 case 'inscription':
                     //Alerte que le compte existe deja
                     $alerte = "Ce nom d'utilisateur est deja pris";
+                    break;
             }
         
         case 0:
@@ -44,16 +47,20 @@ if (!isset($_GET['submit']) || empty($_GET['submit'])) {
                     if (!$valide) {
                         $alerte = "Ce compte n'existe pas";
                     }
+                    break;
 
                 case 'inscription':
                     //Insere le compte dans la BDD
 
-                    if ($mdpUtilisateur = $mdpUtilisateurVerification) {
+                    if ($mdpUtilisateur = $_POST['mdpUtilisateurVerification']) {
                         insererUtilisateurDDB($bdd, $nomUser, $mdpUtilisateur);
                     }
                     else {
                         $alerte = "Votre mot de passe ne correspond pas avec votre mot de passe de confirmation";
                     }
+                    break;
             }
     }
 }
+include('../vues/fonctions.php');
+include('../vues/connexion_inscription_user.php');

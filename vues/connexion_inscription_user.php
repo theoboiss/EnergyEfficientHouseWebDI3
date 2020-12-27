@@ -1,3 +1,7 @@
+<?php
+include('fonctions.php');
+?>
+
 <head>
     <title>Connexion/Inscription</title>
 </head>
@@ -5,7 +9,7 @@
 <body>
     <table>
         <td>
-            <form class="connexion" action="" method="post" name="login">
+            <form class="connexion" action="../controleurs/connexion_inscription_user.php" method="post" name="login">
                 <h1>Connexion</h1>
                 <input type="text" name="nomUser" placeholder="Nom d'utilisateur"><br/>
                 <input type="password" name="mdpUtilisateur" placeholder="Mot de passe"><br/>
@@ -13,7 +17,7 @@
             </form>
         </td>
         <td>
-            <form class="inscription" action="" method="post" name="signin">
+            <form class="inscription" action="../controleurs/connexion_inscription_user.php" method="post" name="signin">
             <table>
                 <td>Vous êtes nouveau ici ?</td>
                 <td>
@@ -26,4 +30,9 @@
             </form>
         </td>
     </table>
+    <?php
+    if (isset($alerte)) {
+        echo AfficheAlerte($alerte);
+    }
+    ?>
 </body>
