@@ -40,25 +40,42 @@ switch ($function) {
         $title = "Ajouter un appareil";
         $vue = "ajout_appareil";
         $alerte = false;
-              
+        $selectPiece = selectPiece($bdd);
+        $selectTypeAppareil = selectTypeAppareil($bdd);
+
+        if(mysqli_num_rows($selectTypeAppareil) <= 0) {
+            $alerte = "Aucun type d'appareil répertorié pour le moment";
+        }
+
+        if(mysqli_num_rows($selectPiece) <= 0) {
+            $alerte = "Aucune pièce répertoriée pour le moment";
+        }
+
+
         // Cette partie du code est appelée si le formulaire a été posté
         
         if (isset($_POST['libelle'])) {
             
             if( !estUneChaine($_POST['libelle'])) {
-                $alerte = "Le libellé de la région doit être une chaîne de caractère.";
+                $alerte = "Le libellé de l'appareil' doit être une chaîne de caractère.";
                 
             } else {
                 
                 $values =  [
-                    'libelleAppareil' => $_POST['libelle']
+                    'libelleAppareil' => $_POST['libelle'],
+                    'lieuAppareil' => $_POST['lieu'],
+                    'videoAppareil' => $_POST['video'],
+                    'descriptionAppareil' => $_POST['description'],
+                    'Id_Piece' => $_POST['Id_Piece'],
+                    'Id_Type_Appareil' => $_POST['Id_TypeAppareil'],
+
                 ];
                 
                 // Appel à la BDD à travers une fonction du modèle.
                 $ajoutAppareil = ajoutAppareil($bdd, $values);
                 
-                if ($retour) {
-                    $alerte = "Ajout réussie";
+                if ($ajoutAppareil) {
+                    $alerte = "Ajout réussi";
                 } else {
                     $alerte = "L'ajout dans la BDD n'a pas fonctionné";
                 }

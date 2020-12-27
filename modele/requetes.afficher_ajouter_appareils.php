@@ -30,6 +30,22 @@ function afficherAppareils(mysqli $bdd) {
  * @return boolean
  */
 
+
+function selectPiece(mysqli $bdd) {
+
+    $query = 'SELECT Id_Piece, libellePiece, Id_Appartement, libelleAppartement FROM piece NATURAL JOIN appartement NATURAL JOIN locataire WHERE Id_Utilisateur = 2 AND DATE(NOW()) BETWEEN dateDebutLocation AND dateFinLocation ORDER BY Id_Appartement';
+
+    return mysqli_query($bdd, $query);
+}
+
+function selectTypeAppareil(mysqli $bdd) {
+
+    $query = 'SELECT * FROM type_appareil';
+
+    return mysqli_query($bdd, $query);
+}
+
+
 function ajoutAppareil(mysqli $bdd, array $values): bool {
 
     $attributs = '';
@@ -42,7 +58,7 @@ function ajoutAppareil(mysqli $bdd, array $values): bool {
     $attributs = substr_replace($attributs, '', -2, 2);
     $valeurs = substr_replace($valeurs, '', -2, 1);
 
-    $query = ' INSERT INTO ' . $table . ' (' . $attributs . ') VALUES (' . $valeurs . ')';
+    $query = ' INSERT INTO appareil' . ' (' . $attributs . ') VALUES (' . $valeurs . ')';
     //echo $query;
     //return mysqli_insert_id(mysqli_query($bdd, $query)) != 0 ? true : false;
     return mysqli_query($bdd, $query) != false ? true : false;
