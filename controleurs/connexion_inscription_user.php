@@ -52,7 +52,7 @@ if (!isset($_POST['submit']) || empty($_POST['submit'])) {
                 case 'inscription':
                     //Insere le compte dans la BDD
 
-                    if ($mdpUtilisateur = $_POST['mdpUtilisateurVerification']) {
+                    if ($mdpUtilisateur == $_POST['mdpUtilisateurVerification']) {
                         insererUtilisateurDDB($bdd, $nomUser, $mdpUtilisateur);
                     }
                     else {
