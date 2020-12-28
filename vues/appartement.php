@@ -1,6 +1,6 @@
 <?php 
 /**
-* Vue : liste des appareils
+* Vue : liste des appartements
 */
 ?>
 
@@ -16,17 +16,15 @@
         <p><?php echo $entete; ?></p>
 
 
-        <table>
+        <table class='appartement_table'>
         	<thead>
         		<tr>
-
-        			<th>Identifiant</th>
-        			<th>Degré de sécurité</th>
-        			<th>Libellé</th>
-                    <th>Identifiant du type de l'appartement</th>
-                    <th>Identifiant de la maison</th>
-                    <th>Date de début de location</th>
-                    <th>Date de fin de location</th>
+                    <th class='appartement_td'>Libellé</th>
+        			<th class='appartement_td'>Degré de sécurité</th>
+                    <th class='appartement_td'>Type de l'appartement</th>
+                    <th class='appartement_td'>Libellé de la maison</th>
+                    <th class='appartement_td'>Date de début de location</th>
+                    <th class='appartement_td'>Date de fin de location</th>
         		</tr>
         	</thead>
         	<tbody>	
@@ -34,25 +32,22 @@
             <?php foreach ($afficherAppartements as $element) { ?>
             
                 <tr> 
-                    <td>
-        		    <?php echo $element['Id_Appartement']; ?>
+                    <td class='appartement_td'>
+        		    <?php echo $element['libelleAppartement']; ?>
                     </td>
-                    <td>
+                    <td class='appartement_td'>
                 	<?php echo $element['degreSecuriteAppartement']; ?>
                     </td>
-                    <td>
-                	<?php echo $element['libelleAppartement']; ?>
+                    <td class='appartement_td'>
+                    <?php echo $element['libelle_type_appartement']; ?>
                     </td>
-                    <td>
-                    <?php echo $element['Id_Type_Appartement']; ?>
+                    <td class='appartement_td'>
+                    <?php echo $element['nomMaison']; ?>
                     </td>
-                    <td>
-                    <?php echo $element['Id_Maison']; ?>
-                    </td>
-                    <td>
+                    <td class='appartement_td'>
                     <?php echo $element['dateDebutLocation']; ?>
                     </td>
-                    <td>
+                    <td class='appartement_td'>
                     <?php echo $element['dateFinLocation']; ?>
                     </td>
                 </tr>

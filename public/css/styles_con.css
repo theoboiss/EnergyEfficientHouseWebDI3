@@ -24,6 +24,38 @@ and open the template in the editor.
     border-style: solid;
 }
 
+.appartement_table {
+    background-color: aqua;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.appartement_td {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.maison_table {
+    background-color: aqua;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.maison_td {
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
 footer{
     height: 100px;
     background-color: beige;

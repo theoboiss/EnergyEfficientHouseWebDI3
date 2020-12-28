@@ -5,7 +5,7 @@
  */
 
 // on inclut le fichier modèle contenant les appels à la BDD
-include('./modele/requetes.appartements.php');
+include('./modele/requetes.maisons.php');
 
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
@@ -19,17 +19,17 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 
 switch ($function) {
     
-    case 'afficherAppartements':
+    case 'afficherMaisons':
         
-        $vue = "appartement";
-        $title = "Mes Appartements";
+        $vue = "maison";
+        $title = "Mes Maisons";
         
-        $entete = "Voici la liste de vos appartements :";
+        $entete = "Voici la liste de vos maisons :";
         
-        $afficherAppartements = afficherAppartements($bdd);
+        $afficherMaisons = afficherMaisons($bdd);
         
-        if(mysqli_num_rows($afficherAppartements) <= 0) {
-            $alerte = "Aucun appartement répertorié pour le moment";
+        if(mysqli_num_rows($afficherMaisons) <= 0) {
+            $alerte = "Aucune maison répertoriée pour le moment";
         }
         
         break;

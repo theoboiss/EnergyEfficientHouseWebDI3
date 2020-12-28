@@ -20,8 +20,8 @@
         	<thead>
         		<tr>
 
-        			<th class="appareil_td">Identifiant</th>
         			<th class="appareil_td">Libellé</th>
+                    <th class="appareil_td">Type</th>
         			<th class="appareil_td">Pièce</th>
                     <th class="appareil_td">Appartement</th>
         		</tr>
@@ -32,10 +32,10 @@
             
                 <tr> 
                     <td class="appareil_td">
-        		    <?php echo $element['Id_Appareil']; ?>
+        		    <?php echo $element['libelleAppareil']; ?>
                     </td>
                     <td class="appareil_td">
-                	<?php echo $element['libelleAppareil']; ?>
+                	<?php echo $element['nomTypeAppareil']; ?>
                     </td>
                     <td class="appareil_td">
                 	<?php echo $element['Id_Piece']; ?>

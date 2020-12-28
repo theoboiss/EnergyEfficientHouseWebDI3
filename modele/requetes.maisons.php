@@ -9,9 +9,9 @@ include("modele/connexion.php");
  * @param mysqli_ $bdd
  * @return array
  */
-function afficherAppartements(mysqli $bdd) {
+function afficherMaisons(mysqli $bdd) {
     
-    $query = 'SELECT * FROM `appartement` NATURAL JOIN locataire NATURAL JOIN maison NATURAL JOIN type_appartement WHERE Id_Utilisateur=2';
+    $query = 'SELECT * FROM maison NATURAL JOIN proprietaire NATURAL JOIN adresse NATURAL JOIN ville NATURAL JOIN departement NATURAL JOIN region WHERE Id_Utilisateur = 2';
     
     return mysqli_query($bdd, $query);
     
