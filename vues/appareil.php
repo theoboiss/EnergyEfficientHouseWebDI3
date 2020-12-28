@@ -22,6 +22,7 @@
 
         			<th class="appareil_td">Libellé</th>
                     <th class="appareil_td">Type</th>
+                    <th class="appareil_td">Description</th>
         			<th class="appareil_td">Pièce</th>
                     <th class="appareil_td">Appartement</th>
         		</tr>
@@ -36,6 +37,9 @@
                     </td>
                     <td class="appareil_td">
                 	<?php echo $element['nomTypeAppareil']; ?>
+                    </td>
+                    <td class="appareil_td">
+                    <?php echo $element['descriptionAppareil']; ?>
                     </td>
                     <td class="appareil_td">
                 	<?php echo $element['Id_Piece']; ?>

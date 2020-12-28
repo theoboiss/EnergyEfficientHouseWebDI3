@@ -60,6 +60,10 @@
 
         <?php echo AfficheAlerte($alerte); ?>
 
+        <p><a href="index.php?cible=appartements&fonction=ajoutAppartement">Ajouter un appartement</a></p>
+        <p><a href="index.php?cible=dateLocation&fonction=ajouterDateLocation">Ajouter une date de location</a></p>
+        <p><a href="index.php?cible=pieces&fonction=ajouterPiece">Ajouter une pièce</a></p>
+
         <p><a href="index.php">Accueil</a></p>
     </body>
 </html>

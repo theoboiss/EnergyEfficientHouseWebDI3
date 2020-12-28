@@ -5,7 +5,7 @@
  */
 
 // on inclut le fichier modèle contenant les appels à la BDD
-include('./modele/requetes.appartements.php');
+include('./modele/requetes.pieces.php');
 
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
@@ -18,53 +18,38 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 }
 
 switch ($function) {
-    
-    case 'afficherAppartements':
-        
-        $vue = "appartement";
-        $title = "Mes Appartements";
-        
-        $entete = "Voici la liste de vos appartements :";
-        
-        $afficherAppartements = afficherAppartements($bdd);
-        
-        if(mysqli_num_rows($afficherAppartements) <= 0) {
-            $alerte = "Aucun appartement répertorié pour le moment";
-        }
-        
-        break;
 
-    case 'ajoutAppartement':
+    case 'ajouterPiece':
     //Ajouter une nouvel appartement
         
-        $title = "Ajouter un appartement";
-        $vue = "ajout_appartement";
+        $title = "Ajouter une pièce";
+        $vue = "ajout_piece";
         $alerte = false;
-        $selectTypeAppartement = selectTypeAppartement($bdd);
-        $selectMaison = selectMaison($bdd);
+        $selectTypePiece = selectTypePiece($bdd);
+        $selectAppartement = selectAppartement($bdd);
+
 
 
         // Cette partie du code est appelée si le formulaire a été posté
         
-        if (isset($_POST['libelle'])) {
+        if (isset($_POST['libellePiece'])) {
             
-            if( !estUneChaine($_POST['libelle'])) {
-                $alerte = "Le libellé de l'appartement doit être une chaîne de caractère.";
+            if( !estUneChaine($_POST['libellePiece'])) {
+                $alerte = "Le libellé de la pièce doit être une chaîne de caractère.";
                 
             } else {
                 
                 $values =  [
-                    'libelleAppartement' => $_POST['libelle'],
-                    'degreSecuriteAppartement' => $_POST['degreSecuriteAppartement'],
-                    'Id_Type_Appartement' => $_POST['typeAppartement'],
-                    'Id_Maison' => $_POST['maison']
+                    'libellePiece' => $_POST['libellePiece'],
+                    'Id_Type_Piece' => $_POST['typePiece'],
+                    'Id_Appartement' => $_POST['Id_Appartement']
 
                 ];
                 
                 // Appel à la BDD à travers une fonction du modèle.
-                $ajoutAppartement = ajoutAppartement($bdd, $values);
+                $ajoutPiece = ajoutPiece($bdd, $values);
                 
-                if ($ajoutAppartement) {
+                if ($ajoutPiece) {
                     $alerte = "Ajout réussi";
                 } else {
                     $alerte = "L'ajout dans la BDD n'a pas fonctionné";
