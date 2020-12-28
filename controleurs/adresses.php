@@ -5,7 +5,7 @@
  */
 
 // on inclut le fichier modèle contenant les appels à la BDD
-include('./modele/requetes.maisons.php');
+include('./modele/requetes.adresses.php');
 
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
@@ -18,52 +18,36 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 }
 
 switch ($function) {
-    
-    case 'afficherMaisons':
-        
-        $vue = "maison";
-        $title = "Mes Maisons";
-        
-        $entete = "Voici la liste de vos maisons :";
-        
-        $afficherMaisons = afficherMaisons($bdd);
-        
-        if(mysqli_num_rows($afficherMaisons) <= 0) {
-            $alerte = "Aucune maison répertoriée pour le moment";
-        }
-        
-        break;
 
-    case 'ajoutMaison':
+    case 'ajoutAdresse':
     //Ajouter une nouvel appartement
         
-        $title = "Ajouter une maison";
-        $vue = "ajout_maison";
+        $title = "Ajouter une adresse";
+        $vue = "ajout_adresse";
         $alerte = false;
-        $selectAdresse = selectAdresse($bdd);
+        $selectVille = selectVille($bdd);
 
 
         // Cette partie du code est appelée si le formulaire a été posté
         
-        if (isset($_POST['nomMaison'])) {
+        if (isset($_POST['rue'])) {
             
-            if( !estUneChaine($_POST['nomMaison'])) {
-                $alerte = "Le nom de la maison doit être une chaîne de caractère.";
+            if( !estUneChaine($_POST['rue'])) {
+                $alerte = "La rue doit être une chaîne de caractère.";
                 
             } else {
 
-                $valuesMaison =  [
-                    'nomMaison' => $_POST['nomMaison'],
-                    'degreIsolation' => $_POST['degreIsolation'],
-                    'evaluationBase' => $_POST['evaluationBase'],
-                    'Id_Adresse' => $_POST['Id_Adresse']
+                $values =  [
+                    'numMaison' => $_POST['numMaison'],
+                    'rue' => $_POST['rue'],
+                    'Id_Ville' => $_POST['Id_Ville']
 
                 ];
                 
                 // Appel à la BDD à travers une fonction du modèle.
-                $ajoutMaison = ajoutMaison($bdd, $valuesMaison);
+                $ajoutAdresse = ajoutAdresse($bdd, $values);
                 
-                if ($ajoutMaison) {
+                if ($ajoutAdresse) {
                     $alerte = "Ajout réussi";
                 } else {
                     $alerte = "L'ajout dans la BDD n'a pas fonctionné";

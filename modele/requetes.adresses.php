@@ -3,14 +3,14 @@
 // Appel du fichier déclarant mysqli_
 include("modele/connexion.php"); 
 
-function selectAppartement(mysqli $bdd) {
+function selectVille(mysqli $bdd) {
 
-    $query = 'SELECT * FROM appartement ORDER BY libelleAppartement';
+    $query = 'SELECT * FROM ville NATURAL JOIN departement NATURAL JOIN region ORDER BY nomRegion, nomDepartement, nom_ville';
 
     return mysqli_query($bdd, $query);
 }
 
-function ajoutLocation(mysqli $bdd, array $values): bool {
+function ajoutAdresse(mysqli $bdd, array $values): bool {
 
     $attributs = '';
     $valeurs = '';
@@ -22,11 +22,10 @@ function ajoutLocation(mysqli $bdd, array $values): bool {
     $attributs = substr_replace($attributs, '', -2, 2);
     $valeurs = substr_replace($valeurs, '', -2, 1);
 
-    $query = ' INSERT INTO locataire' . ' (' . $attributs . ') VALUES (' . $valeurs . ')';
+    $query = ' INSERT INTO adresse' . ' (' . $attributs . ') VALUES (' . $valeurs . ')';
     //echo $query;
     //return mysqli_insert_id(mysqli_query($bdd, $query)) != 0 ? true : false;
     return mysqli_query($bdd, $query) != false ? true : false;
 }
-
 
 ?>
