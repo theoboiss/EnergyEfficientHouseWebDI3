@@ -74,8 +74,8 @@ INSERT INTO `consoAppareil` (consommation, Id_Appareil, Id_Matiere) VALUES (3, 4
 -- Substances
 INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "chaleur", "Chaleur", 9, 5);
 INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "CO2", "Gaz a effet de serre", 4, 0);
-INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "CO", "Monoxyde de Carbone : gaz inodore, invisible et mortel", 1, 0);
-INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "CEM", "Champs électromagnétiques : Risques cerebraux et musculaires", 3, 0);
+INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "CO", "Monoxyde de Carbone", 1, 0);
+INSERT INTO `matiere` (valMin, valMax, libelle, description, valCrit, valIdeale) VALUES (0, 10, "CEM", "Champs électromagnétiques", 3, 0);
 
 INSERT INTO `substance` (Id_Matiere) VALUES (5); -- a incrementer à chaque nouvelle ressources (il faudra faire un trigger)
 INSERT INTO `substance` (Id_Matiere) VALUES (6);
