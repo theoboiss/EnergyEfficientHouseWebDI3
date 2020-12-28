@@ -323,8 +323,8 @@ DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `Id_Utilisateur` int(11) NOT NULL AUTO_INCREMENT,
   `nomUser` varchar(30) NOT NULL,
-  `emailUtilisateur` varchar(50) DEFAULT NULL,
-  `mdpUtilisateur` VARCHAR(16),
+  `emailUtilisateur` varchar(50) NOT NULL,
+  `mdpUtilisateur` varchar(16) NOT NULL,
   `telUtilisateur` varchar(10) DEFAULT NULL,
   `prenomUtilisateur` varchar(30) NOT NULL,
   `ageUtilisateur` int(11) NOT NULL,
