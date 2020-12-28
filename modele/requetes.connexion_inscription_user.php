@@ -12,7 +12,7 @@ include('requetes.generiques.php');
 
 
 function utilisateurExiste($bdd, $nomUser): int {
-    $nbUtilisateurs = mycount($bdd, 'utilisateur', ['nomUser' => $nomUser]);
+    $nbUtilisateurs = count(recherche($bdd, 'utilisateur', ['nomUser' => '\'' . $nomUser . '\'']));
 
     if ($nbUtilisateurs <= 0) {
         return 0;
@@ -26,7 +26,7 @@ function utilisateurExiste($bdd, $nomUser): int {
 }
 
 function connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur): int {
-    $nbUtilisateurs = mycount($bdd, 'utilisateur', ['nomUser' => $nomUser, 'mdpUtilisateur' => $mdpUtilisateur]);
+    $nbUtilisateurs = count(recherche($bdd, 'utilisateur', ['nomUser' => '\'' . $nomUser . '\'', 'mdpUtilisateur' => '\'' . $mdpUtilisateur . '\'']));
     
     if ($nbUtilisateurs <= 0) {
         return 0;
@@ -40,7 +40,7 @@ function connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur): int {
 }
 
 function insererUtilisateurDDB($bdd, $nomUser, $mdpUtilisateur) {
-    insertion($bdd, 'utilisateur', ['nomUser' => $nomUser, 'mdpUtilisateur' => $mdpUtilisateur]);
+    insertion($bdd, 'utilisateur', ['nomUser' => '\'' . $nomUser . '\'', 'mdpUtilisateur' => '\'' . $mdpUtilisateur . '\'']);
 }
 
 
