@@ -32,9 +32,8 @@
             <p>(* Signifie que le champ est obligatoire)</p>
         </td>
     </table>
-    <?php
-    if (isset($alerte)) {
-        echo AfficheAlerte($alerte);
-    }
-    ?>
+
+    <?php if (isset($alerte)) echo AfficheAlerte($alerte); ?>
+
+    <p><a href="index.php">Accueil</a></p>
 </body>
