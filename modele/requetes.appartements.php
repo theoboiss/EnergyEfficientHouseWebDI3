@@ -24,6 +24,13 @@ function selectTypeAppartement(mysqli $bdd) {
     return mysqli_query($bdd, $query);
 }
 
+function selectMaison(mysqli $bdd) {
+
+    $query = 'SELECT * FROM maison';
+
+    return mysqli_query($bdd, $query);
+}
+
 function ajoutAppartement(mysqli $bdd, array $values): bool {
 
     $attributs = '';
