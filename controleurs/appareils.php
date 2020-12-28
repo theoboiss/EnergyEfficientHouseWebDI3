@@ -43,6 +43,7 @@ switch ($function) {
         $selectPiece = selectPiece($bdd);
         $selectTypeAppareil = selectTypeAppareil($bdd);
 
+
         if(mysqli_num_rows($selectTypeAppareil) <= 0) {
             $alerte = "Aucun type d'appareil répertorié pour le moment";
         }
@@ -67,7 +68,7 @@ switch ($function) {
                     'videoAppareil' => $_POST['video'],
                     'descriptionAppareil' => $_POST['description'],
                     'Id_Piece' => $_POST['Id_Piece'],
-                    'Id_Type_Appareil' => $_POST['Id_TypeAppareil'],
+                    'Id_Type_Appareil' => $_POST['Id_TypeAppareil']
 
                 ];
                 

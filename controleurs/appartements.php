@@ -34,6 +34,45 @@ switch ($function) {
         
         break;
 
+    case 'ajoutAppartement':
+    //Ajouter une nouvel appartement
+        
+        $title = "Ajouter un appartement";
+        $vue = "ajout_appartement";
+        $alerte = false;
+
+
+        // Cette partie du code est appelée si le formulaire a été posté
+        
+        if (isset($_POST['libelle'])) {
+            
+            if( !estUneChaine($_POST['libelle'])) {
+                $alerte = "Le libellé de l'appartement doit être une chaîne de caractère.";
+                
+            } else {
+                
+                $values =  [
+                    'libelleAppartement' => $_POST['libelle'],
+                    'degreSecuriteAppartement' => $_POST['degreSecuriteAppartement'],
+                    'Id_Type_Appartement' => $_POST['typeAppartement'],
+                    'Id_Maison' => $_POST['maison']
+
+                ];
+                
+                // Appel à la BDD à travers une fonction du modèle.
+                $ajoutAppartement = ajoutAppartement($bdd, $values);
+                
+                if ($ajoutAppartement) {
+                    $alerte = "Ajout réussi";
+                } else {
+                    $alerte = "L'ajout dans la BDD n'a pas fonctionné";
+                }
+            }
+        }
+        
+        break;
+
+
         
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
