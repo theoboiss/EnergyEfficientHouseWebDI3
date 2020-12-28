@@ -24,35 +24,16 @@ function recupereTous(mysqli $bdd, string $table) {
  * @param array $attributs
  * @return array
  */
-function recherche(mysqli $bdd, string $table, array $attributs): array {
+function recherche(mysqli $bdd, string $table, array $attributs) {
     $where = "";
     foreach($attributs as $key => $value) {
-        $where .= "$key = $key" . ", ";
+        $where .= "$key = '$value'" . " AND ";
     }
-    $where = substr_replace($where, '', -2, 2);
-    $statement = $bdd->prepare('SELECT * FROM ' . $table . ' WHERE ' . $where);
+    $where = substr_replace($where, '', -5, 5);
     
-    foreach($attributs as $key => $value) {
-        $statement->bind_param(":$key", $value);
-    }
-    $statement->execute();
-    return $statement->fetch_all();
-}
-
-function mycount(mysqli $bdd, string $table, array $attributs): array {
+    $statement = 'SELECT * FROM ' . $table . ' WHERE ' . $where;
     
-    $where = "";
-    foreach($attributs as $key => $value) {
-        $where .= "$key = :$key" . ", ";
-    }
-    $where = substr_replace($where, '', -2, 2);
-    $statement = $bdd->prepare('SELECT COUNT(*) FROM ' . $table . ' WHERE ' . $where);
-    
-    foreach($attributs as $key => $value) {
-        $statement->bind_param(":$key", $value);
-    }
-    $statement->execute();
-    return $statement->fetch_all();
+    return mysqli_query($bdd, $statement);
 }
 
 /**
