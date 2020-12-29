@@ -8,4 +8,6 @@ include("modele/connexion.php");
  * @param mysqli_ $bdd
  * @return array
  */
+ 
+ function afficher
 ?>
