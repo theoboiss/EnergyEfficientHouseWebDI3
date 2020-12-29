@@ -8,6 +8,40 @@ and open the template in the editor.
     Author     : TogbeMaurras
 */
 
+.interface_conn_insc {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.connexion {
+    margin-left: auto;
+    margin-right: 0;
+    background-color: aliceblue;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.inscription_misc {
+    margin-left: 100px;
+    padding: 0 10% 0 0;
+}
+
+.inscription {
+    margin-right: auto;
+    background-color: aliceblue;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.inscription_block {
+    margin-left: 0;
+    margin-right: auto;
+    margin: 0 0 0 20%;
+}
+
 .appareil_table {
     background-color: aqua;
     align-items: center;
@@ -132,15 +166,19 @@ h2 a
 form > input, form > label
 {
     font-family: Arial, "Times New Roman", monospace, serif, "sans-serif";
-    font-size: large;
-    box-shadow: -1px 2px 2px 3px red;
-    margin: 5px 10px 5px 10px;
-    padding: 5px;
+    font-size: medium;
+    box-shadow: 0px 1px 1px 1px grey;
+    margin: 5px 0 5px 0;
+    padding: 2px;
     /*border-radius: 20px;*/
+}
+fieldset
+{
+    width: 250px;
 }
 form > label
 {
-    width: 200px;
+    width: 250%;
 }
 form > input:hover
 {
@@ -159,10 +197,6 @@ h1
 {
     font-style: italic;
     text-align: center;
-}
-a:link
-{
-    color: background;
 }
 a:visited
 {

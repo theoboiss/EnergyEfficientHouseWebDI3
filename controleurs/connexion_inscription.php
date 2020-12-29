@@ -12,11 +12,8 @@ if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
     $vue = "connexion_inscription";
     $title = "Connexion/Inscription";
     $alerte = "";
-} else if (!isset($_POST['nomUser']) || empty($_POST['nomUser'])
-        || !isset($_POST['emailUtilisateur']) || empty($_POST['emailUtilisateur'])
-        || !isset($_POST['mdpUtilisateur']) || empty($_POST['mdpUtilisateur'])
-        || !isset($_POST['prenomUtilisateur']) || empty($_POST['prenomUtilisateur'])
-        || !isset($_POST['ageUtilisateur']) || empty($_POST['ageUtilisateur']) ) {
+} else if (!isset($_POST['nomUser'])        || empty($_POST['nomUser'])
+        || !isset($_POST['mdpUtilisateur']) || empty($_POST['mdpUtilisateur']) ) {
     $function = "";
     $vue = "connexion_inscription";
     $title = "Connexion/Inscription";
@@ -38,14 +35,25 @@ if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
 
                     $result = connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur);
                     if ($result) {
-                        if (!mysqli_num_rows($result)) {
+                        $nbComptes = mysqli_num_rows($result);
+                        if (!$nbComptes) {
                             $alerte = "Mot de passe incorrect";
-                        } else {
-                            $alerte = "Connecte en tant que " . $nomUser;
+                            break;
+                        } else if ($nbComptes == 1) {
+                            if (session_start()) {
+                                $_SESSION['Id'] = $result->fetch_row()[0];
+                                $_SESSION['name'] = $nomUser;
+                                //update etat (actif) in DB
+                                
+                                $alerte = "Connecte en tant que " . $nomUser;
+
+                                $vue = "accueil";
+                                $title = "Acceuil";
+                                break;
+                            }
                         }
-                    } else {
-                        echo "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
                     }
+                    $alerte = "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
                     break;
 
                 case 'inscription':
@@ -69,12 +77,10 @@ if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
                     if ($result) {
                         if (!mysqli_num_rows($result)) {
                             $alerte = "Ce compte n'existe pas";
-                        } else {
-                            $vue = "accueil";
                         }
                     }
                     else {
-                        echo "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
+                        $alerte = "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
                     }
                     break;
 
@@ -84,14 +90,40 @@ if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
                     $title = "Connexion/Inscription";
 
                     if ($mdpUtilisateur == $_POST['mdpUtilisateurVerification']) {
+
                         $emailUtilisateur = $_POST['emailUtilisateur'];
                         $prenomUtilisateur = $_POST['prenomUtilisateur'];
                         $telUtilisateur = $_POST['telUtilisateur'];
                         $ageUtilisateur = $_POST['ageUtilisateur'];
-                        if (!insererUtilisateurDDB($bdd,$nomUser,$emailUtilisateur,$mdpUtilisateur,$prenomUtilisateur,$ageUtilisateur,$telUtilisateur)) {
-                            $alerte = "Echec lors de l'inscription, veuillez reessayer plus tard ou nous contacter";
+
+                        if (!isset($emailUtilisateur) || empty($emailUtilisateur)
+                        || !isset($prenomUtilisateur) || empty($prenomUtilisateur)
+                        || !isset($ageUtilisateur)    || empty($ageUtilisateur) ) {
+                            $alerte = "Formulaire incomplet";
                         } else {
-                            $vue = "accueil";
+                            if (!insererUtilisateurDDB($bdd,$nomUser,$emailUtilisateur,$mdpUtilisateur,$prenomUtilisateur,$ageUtilisateur,$telUtilisateur)) {
+                                $alerte = "Echec lors de l'inscription, veuillez reessayer plus tard ou nous contacter";
+                            } else {
+                                $result = connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur);
+                                if ($result) {
+                                    $nbComptes = mysqli_num_rows($result);
+                                    if ($nbComptes == 1) {
+                                        if (session_start()) {
+                                            $_SESSION['Id'] = $result->fetch_row()[0];
+                                            $_SESSION['name'] = $nomUser;
+                                            //update etat (actif) in DB
+
+                                            $alerte = "Connecte en tant que " . $nomUser;
+
+                                            $vue = "accueil";
+                                            $title = "Acceuil";
+                                            break;
+                                        }
+                                    }
+                                }
+                                $alerte = "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
+                                break;
+                            }
                         }
                     }
                     else {

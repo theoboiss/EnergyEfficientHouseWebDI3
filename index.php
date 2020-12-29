@@ -18,7 +18,7 @@ include("controleurs/fonctions.php");
 include("vues/fonctions.php");
 
 // On identifie le contrôleur à appeler dont le nom est contenu dans cible passé en GET
-if(isset($_GET['cible']) && !empty($_GET['cible'])) {
+if (isset($_GET['cible']) && !empty($_GET['cible'])) {
     // Si la variable cible est passé en GET
     $url = $_GET['cible']; //profil, maison, Pièce, Appartement, ...etc.
     
