@@ -30,24 +30,28 @@ switch ($function) {
 
 
         // Cette partie du code est appelée si le formulaire a été posté
-        
-        if (isset($_POST['dateDebut'])) {
-            
-                
-             $values =  [
-                'Id_Appartement' => $_POST['Id_Appartement'],
-                'dateDebutLocation' => $_POST['dateDebut'],
-                'dateFinLocation' => $_POST['dateFin'],
-                'Id_Utilisateur' => 2
-            ];
-                
-            // Appel à la BDD à travers une fonction du modèle.
-            $ajoutLocation = ajoutLocation($bdd, $values);
-                
-            if ($ajoutLocation) {
-                $alerte = "Ajout réussi";
+        if(isset($_POST['dateDebut'])) {
+
+            if ($_POST['Id_Appartement']=="default") {
+                    $alerte = "Veuillez sélectionner l'appartement. ";
+
             } else {
-                $alerte = "L'ajout dans la BDD n'a pas fonctionné";
+                
+                    $values =  [
+                        'Id_Appartement' => $_POST['Id_Appartement'],
+                        'dateDebutLocation' => $_POST['dateDebut'],
+                        'dateFinLocation' => $_POST['dateFin'],
+                        'Id_Utilisateur' => 2
+                    ]; 
+                    
+                // Appel à la BDD à travers une fonction du modèle.
+                $ajoutLocation = ajoutLocation($bdd, $values);
+                    
+                if ($ajoutLocation) {
+                    $alerte = "Ajout réussi";
+                } else {
+                    $alerte = "L'ajout dans la BDD n'a pas fonctionné";
+                }
             }
         }
         

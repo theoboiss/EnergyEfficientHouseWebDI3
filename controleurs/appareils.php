@@ -58,8 +58,20 @@ switch ($function) {
         if (isset($_POST['libelle'])) {
             
             if( !estUneChaine($_POST['libelle'])) {
-                $alerte = "Le libellé de l'appareil' doit être une chaîne de caractère.";
+                $alerte = "Le libellé de l'appareil doit être une chaîne de caractère.";
                 
+            } else if (!estUneChaine($_POST['lieu'])) {
+                $alerte = "Le lieu doit être une chaîne de caractère. ";
+
+            } else if (!($_POST['Id_Piece'])) {
+                $alerte = "Veuillez sélectionner une pièce. ";
+
+            } else if ($_POST['Id_TypeAppareil']=="default") {
+                $alerte = "Veuillez sélectionner le type de l'appareil. ";
+
+            } else if ($_POST['Id_Piece']=="default") {
+                $alerte = "Veuillez sélectionner la pièce. ";
+
             } else {
                 
                 $values =  [

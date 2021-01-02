@@ -49,6 +49,15 @@ switch ($function) {
             
             if( !estUneChaine($_POST['nomMaison'])) {
                 $alerte = "Le nom de la maison doit être une chaîne de caractère.";
+
+            } else if (!estUnEntier($_POST['degreIsolation'])) {
+                $alerte = "Le degré d'isolation doit être un entier. ";
+
+            } else if (!estUnEntier($_POST['evaluationBase'])) {
+                $alerte = "L'évaluation de base doit être un entier. ";
+
+            } else if ($_POST['Id_Adresse']=="default") {
+                $alerte = "Veuillez sélectionner l'adresse. ";
                 
             } else {
 

@@ -17,7 +17,7 @@
 
         <form method="POST" action="">
 
-            <p><label for="Id_Appartement">Type</label>
+            <p><label for="Id_Appartement">Appartement :</label>
             <select id="Id_Appartement" name="Id_Appartement" >
                 <option value="default">Choisissez l'appartement :</option>
                 <?php              

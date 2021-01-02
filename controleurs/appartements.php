@@ -51,6 +51,15 @@ switch ($function) {
             if( !estUneChaine($_POST['libelle'])) {
                 $alerte = "Le libellé de l'appartement doit être une chaîne de caractère.";
                 
+            } else if (!estUnEntier($_POST['degreSecuriteAppartement'])) {
+                $alerte = "Le degré de sécurité doit être un entier. ";
+
+            } else if ($_POST['typeAppartement']=="default") {
+                $alerte = "Veuillez sélectionner le type de l'appartement. ";
+
+            } else if ($_POST['maison']=="default") {
+                $alerte = "Veuillez sélectionner une maison. ";
+
             } else {
                 
                 $values =  [

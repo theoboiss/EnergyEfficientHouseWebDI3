@@ -34,6 +34,14 @@ switch ($function) {
             
             if( !estUneChaine($_POST['rue'])) {
                 $alerte = "La rue doit être une chaîne de caractère.";
+
+
+            } else if (!estUnEntier($_POST['numMaison'])) {
+                $alerte = "Le numéro de la maison doit être un entier. ";
+
+
+            } else if ($_POST['Id_Ville']=="default") {
+                $alerte = "Veuillez sélectionner la ville. ";
                 
             } else {
 
