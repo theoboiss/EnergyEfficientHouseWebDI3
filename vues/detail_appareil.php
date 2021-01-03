@@ -14,13 +14,23 @@
 			<thead>
 				<tr>
 					<th class="appareil_td">Libellé</th>
-					<th class="appareil_td">Ressource</th>
 					<th class="appareil_td">Description</th>
-					<th class="appareil_td">Valeur</th>
+					<th class="appareil_td">Valeur ideale</th>
 					<th class="appareil_td">Valeur critique</th>
 				</tr>
 			</thead>
 		<tbody>
-			<?php foreach 
-			<tr>
-				<th class="appareil_td">
+			<?php foreach ($afficherRessources as $element) { ?>
+				<tr>
+					<td class="appareil_td"> <?php echo $element['libelle']; ?> </td>
+					<td class="appareil_td"> <?php echo $element['description']; ?> </td>
+					<td class="appareil_td"> <?php echo $element['valIdeal']; ?> </td>
+					<td class="appareil_td"> <?php echo $element['valCrit']; ?> </td>
+				</tr>
+			<?php } ?>
+		</tbody>
+     	</table>
+
+	<?php echo AfficheAlerte($alerte); ?>
+
+	<p><a href="index.php">Accueil</a></p>		
