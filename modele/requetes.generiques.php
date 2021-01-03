@@ -61,4 +61,35 @@ function insertion(mysqli $bdd, string $table, array $values): bool {
     return mysqli_query($bdd, $query) != false ? true : false;
 }
 
+/**
+ * Met à jour un nouvel élément dans une table
+ * @param mysqli $bdd
+ * @param array $attributs
+ * @param array $values
+ * @param string $table
+ * @return boolean
+ */
+function metAJour(mysqli $bdd, string $table, array $values, array $eqConditions): bool {
+
+    $attributs = '';
+    $condition = '';
+    foreach ($values as $key => $value) {
+       
+        $attributs .= $key . ' = "' . $value . '", ';
+    }
+    foreach($eqConditions as $key => $value) {
+        $condition .= $key . ' = ' . $value . ' AND ';
+    }
+    $attributs = substr_replace($attributs, '', -2, 2);
+    $condition = substr_replace($condition, '', -5, 5);
+
+    
+
+    $query = ' UPDATE ' . $table . ' SET ' . $attributs . ' WHERE ' . $condition;
+    //echo $query;
+    //return mysqli_insert_id(mysqli_query($bdd, $query)) != 0 ? true : false;
+    return mysqli_query($bdd, $query) != false ? true : false;
+}
+
+
 ?>

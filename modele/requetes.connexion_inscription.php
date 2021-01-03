@@ -24,8 +24,12 @@ function connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur) {
 }
 
 function insererUtilisateurDDB($bdd, $nomUser, $emailUtilisateur, $mdpUtilisateur, $prenomUtilisateur, $ageUtilisateur, $telUtilisateur = NULL) {
-    return insertion($bdd, 'utilisateur', ['nomUser' => $nomUser, 'emailUtilisateur' => $emailUtilisateur, 'mdpUtilisateur' => $mdpUtilisateur, 'prenomUtilisateur' => $prenomUtilisateur, 'telUtilisateur' => $telUtilisateur, 'ageUtilisateur' => $ageUtilisateur]);
+    return insertion($bdd, 'utilisateur', ['nomUser' => $nomUser, 'emailUtilisateur' => $emailUtilisateur, 'mdpUtilisateur' => $mdpUtilisateur, 'prenomUtilisateur' => $prenomUtilisateur, 'telUtilisateur' => $telUtilisateur, 'ageUtilisateur' => $ageUtilisateur, 'dateCreationCompte' => date('Y-m-d')]);
 }
 
+function etatUtilisateurDDB($bdd, $etat, $id) {
+    metAJour($bdd, 'utilisateur', ['etatCompte' => $etat], ['Id_Utilisateur' => $id]);
+    return recherche($bdd, 'utilisateur', ['etatCompte' => $etat])->fetch_row()[8];
+}
 
 ?>

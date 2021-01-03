@@ -2,12 +2,23 @@
 
 /**
  * Contrôleur des connexions Utilisateur
+ * 
+ * Après s'être connecté, l'utilisateur se voit attribué les variables de session 'id', 'name' et 'etat'. Il les perd s'il se déconnecte.
  */
 
 // on inclut le fichier modèle contenant les appels à la BDD
 include('./modele/requetes.connexion_inscription.php');
 
-if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
+if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
+    $_SESSION['etat'] = etatUtilisateurDDB($bdd, 'inactif', $_SESSION['id']);
+    if (session_unset()) {
+        $alerte = "Deconnecte";
+    }
+
+    $function = "";
+    $vue = "accueil";
+    $title = "Acceuil";
+} else if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
     $function = "";
     $vue = "connexion_inscription";
     $title = "Connexion/Inscription";
@@ -40,17 +51,15 @@ if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
                             $alerte = "Mot de passe incorrect";
                             break;
                         } else if ($nbComptes == 1) {
-                            if (session_start()) {
-                                $_SESSION['Id'] = $result->fetch_row()[0];
-                                $_SESSION['name'] = $nomUser;
-                                //update etat (actif) in DB
-                                
-                                $alerte = "Connecte en tant que " . $nomUser;
+                            $_SESSION['id'] = $result->fetch_row()[0];
+                            $_SESSION['name'] = $nomUser;
 
-                                $vue = "accueil";
-                                $title = "Acceuil";
-                                break;
-                            }
+                            $_SESSION['etat'] = etatUtilisateurDDB($bdd, 'actif', $_SESSION['id']);
+                            $alerte = "Connecte en tant que " . $_SESSION['name'];
+
+                            $vue = "accueil";
+                            $title = "Acceuil";
+                            break;
                         }
                     }
                     $alerte = "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
@@ -105,21 +114,16 @@ if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
                                 $alerte = "Echec lors de l'inscription, veuillez reessayer plus tard ou nous contacter";
                             } else {
                                 $result = connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur);
-                                if ($result) {
-                                    $nbComptes = mysqli_num_rows($result);
-                                    if ($nbComptes == 1) {
-                                        if (session_start()) {
-                                            $_SESSION['Id'] = $result->fetch_row()[0];
-                                            $_SESSION['name'] = $nomUser;
-                                            //update etat (actif) in DB
+                                if ($result && mysqli_num_rows($result) == 1) {
+                                    $_SESSION['id'] = $result->fetch_row()[0];
+                                    $_SESSION['name'] = $nomUser;
 
-                                            $alerte = "Connecte en tant que " . $nomUser;
+                                    $_SESSION['etat'] = etatUtilisateurDDB($bdd, 'actif', $_SESSION['id']);
+                                    $alerte = "Connecte en tant que " . $_SESSION['name'];
 
-                                            $vue = "accueil";
-                                            $title = "Acceuil";
-                                            break;
-                                        }
-                                    }
+                                    $vue = "accueil";
+                                    $title = "Acceuil";
+                                    break;
                                 }
                                 $alerte = "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
                                 break;
@@ -134,10 +138,11 @@ if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
             break;
             
         default:
-        // si aucune fonction ne correspond au paramètre function passé en GET
-        $vue = "erreur404";
-        $title = "error404";
-        $message = "Erreur 404 : la page recherchée n'existe pas.";
+            //présence anormale de plusieurs comptes avec le même nom d'utilisateur dans la BDD
+            $vue = "connexion_inscription";
+            $title = "Connexion/Inscription";
+            
+            $alerte = "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
     }
 }
 
