@@ -20,3 +20,7 @@
 					<th class="appareil_td">Valeur critique</th>
 				</tr>
 			</thead>
+		<tbody>
+			<?php foreach 
+			<tr>
+				<th class="appareil_td">
