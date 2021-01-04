@@ -35,8 +35,8 @@
                 <td><?php echo $ageUtilisateur ?></td>
             </tr>
         </table>
+        <?php if ($message) echo $message ?>
         <p><a href="index.php?cible=modif_profil&fonction=Modifier">Modifier mes informations personnelles</a></p>
-        <?php if (isset($alerte)) echo AfficheAlerte($alerte); ?>
 
     </body>
 </html>

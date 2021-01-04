@@ -71,9 +71,10 @@ if (isset($_POST['nomUser'])
 
                 if ($result && mysqli_num_rows($result) == 1) {
                     $_SESSION['name'] = $nomUser;
-                    header('Location: index.php?cible=profil');
+                    $message = "Changements effectues";
+                    header('Location: index.php?cible=profil&modif');
                     exit();
-                    
+
                 } else {
                     $nomUser = $infos[1];
                     $prenomUtilisateur = $infos[5];

@@ -24,6 +24,9 @@ $ageUtilisateur = $infos[6];
 
 $entete = "Voici la liste de vos appareils :";
 
+if (isset($_GET['modif'])) {$message = "<p><strong><i>Changements effectués</i></strong></p>";}
+else {$message = "";}
+
 $afficherAppareils = afficherAppareils($bdd);
 if (mysqli_num_rows($afficherAppareils) <= 0) {
     $alerte = "Aucun appareil répertorié pour le moment";

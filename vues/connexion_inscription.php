@@ -55,7 +55,5 @@
         </table>
 
         <?php if (isset($alerte)) echo AfficheAlerte($alerte); ?>
-
-        <p><a href="index.php">Accueil</a></p>
     </body>
 </html>
