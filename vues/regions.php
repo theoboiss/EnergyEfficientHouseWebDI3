@@ -15,9 +15,7 @@
 <table class="region_table">
 	<thead>
 		<tr>
-
-			<th>Identifiant</th>
-			<th>Libellé</th>
+			<th>Nom</th>
 		</tr>
 	</thead>
 	<tbody>	

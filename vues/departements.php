@@ -16,8 +16,7 @@
 	<thead>
 		<tr>
 
-			<th>Identifiant</th>
-			<th>Libellé</th>
+			<th>Nom</th>
 			<th>Région</th>
 		</tr>
 	</thead>

@@ -3,9 +3,16 @@
 * Vue : ajouter un département
 */
 ?>
+<!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <meta charset="UTF-8" />
+            <link rel="stylesheet" href="public/css/styles_con.css"/>
+        </head>
 
 <?php echo AfficheAlerte($alerte); ?>
 
+<fieldset class="departement_form">
 <form method="POST" action="">
 	
     <label for="id_libelle">Libellé :</label>
@@ -25,5 +32,6 @@
     <button type="submit" id="id_ajout" name="submit">Ajouter</button>
 
 </form>
+</fieldset>
 
 <p><a href="index.php?cible=departement">Retour</a> | <a href="index.php">Accueil</a></p>
