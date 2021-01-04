@@ -39,7 +39,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
         case 1:
             //Si l'utilisateur existe deja
             switch ($function) {
-                case 'connexion':
+                case 'Connexion':
                     //Verifie le mdp
                     $vue = "connexion_inscription";
                     $title = "Connexion/Inscription";
@@ -65,7 +65,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
                     $alerte = "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";
                     break;
 
-                case 'inscription':
+                case 'Inscription':
                     //Alerte que le compte existe deja
                     $vue = "connexion_inscription";
                     $title = "Connexion/Inscription";
@@ -77,7 +77,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
         
         case 0:
             switch ($function) {
-                case 'connexion':
+                case 'Connexion':
                     //Alerte que le compte n'existe pas
                     $vue = "connexion_inscription";
                     $title = "Connexion/Inscription";
@@ -93,7 +93,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
                     }
                     break;
 
-                case 'inscription':
+                case 'Inscription':
                     //Insere le compte dans la BDD
                     $vue = "connexion_inscription";
                     $title = "Connexion/Inscription";

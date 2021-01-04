@@ -21,9 +21,9 @@
                         <form action="" method="post" name="login">
 
 
-                        <input type="text" name="nomUser" placeholder="Nom d'utilisateur"><br/>
-                        <input type="password" name="mdpUtilisateur" placeholder="Mot de passe"><br/>
-                        <input type="submit" value="connexion" name="fonction">
+                        Nom d'utilisateur : <input type="text" name="nomUser"><br/>
+                        Mot de passe : <input type="password" name="mdpUtilisateur"><br/>
+                        <input type="submit" value="Connexion" name="fonction">
 
                     </form>
                 </fieldset>
@@ -37,14 +37,14 @@
                             <legend>Inscription</legend>
                             <form action="" method="post" name="logInOut">
                             
-                                <input type="text" name="nomUser" placeholder="*Nom d'utilisateur"><br/>
-                                <input type="text" name="emailUtilisateur" placeholder="*e-mail"><br/>
-                                <input type="text" name="prenomUtilisateur" placeholder="*Prenom"><br/>
-                                <input type="text" name="telUtilisateur" placeholder="Telephone"><br/>
-                                <input type="text" name="ageUtilisateur" placeholder="*Age"><br/>
-                                <input type="password" name="mdpUtilisateur" placeholder="*Mot de passe"><br/>
-                                <input type="password" name="mdpUtilisateurVerification" placeholder="*Confirmation de mot de passe"><br/>
-                                <input type="submit" value="inscription" name="fonction">
+                                *Nom d'utilisateur : <input type="text" name="nomUser"><br/>
+                                *Prenom : <input type="text" name="prenomUtilisateur"><br/>
+                                *e-mail : <input type="email" name="emailUtilisateur"><br/>
+                                Telephone: <input type="tel" name="telUtilisateur"><br/>
+                                *Age : <input type="number" name="ageUtilisateur" min="0" max="150"><br/>
+                                *Mot de passe : <input type="password" name="mdpUtilisateur"><br/>
+                                *Confirmation du mot de passe : <input type="password" name="mdpUtilisateurVerification"><br/>
+                                <input type="submit" value="Inscription" name="fonction">
 
                             </form>
                         </fieldset>

@@ -7,9 +7,6 @@
 // on récupère les requêtes génériques
 include('requetes.generiques.php');
 
-//on définit le nom de la table
-
-
 
 function utilisateurExiste($bdd, $nomUser): int {
     $result = recherche($bdd, 'utilisateur', ['nomUser' => $nomUser]);
@@ -29,7 +26,11 @@ function insererUtilisateurDDB($bdd, $nomUser, $emailUtilisateur, $mdpUtilisateu
 
 function etatUtilisateurDDB($bdd, $etat, $id) {
     metAJour($bdd, 'utilisateur', ['etatCompte' => $etat], ['Id_Utilisateur' => $id]);
-    return recherche($bdd, 'utilisateur', ['etatCompte' => $etat])->fetch_row()[8];
+    return recherche($bdd, 'utilisateur', ['Id_Utilisateur' => $id])->fetch_row()[8];
+}
+
+function getUtilisateur($bdd): array {
+    return recherche($bdd, 'utilisateur', ['Id_Utilisateur' => $_SESSION["id"]])->fetch_row();
 }
 
 ?>
