@@ -28,9 +28,10 @@ switch ($function) {
         
         $liste = recupereTous($bdd, $table);
         
-        if(mysqli_num_rows($liste) <= 0) {
-            $alerte = "Aucun département enregistrée pour le moment";
-        } else {
+        if($liste){
+            if(mysqli_num_rows($liste) <= 0) {
+                $alerte = "Aucun département enregistrée pour le moment";
+            }
         }
         
         break;
@@ -59,12 +60,12 @@ switch ($function) {
             } else {
                 
                 $values =  [
-                    'LibDept' => $_POST['libelle'],
-                    'idRegion' => $_POST['idRegion']
+                    'nomDepartement' => $_POST['libelle'],
+                    'Id_Region' => $_POST['idRegion']
                 ];
                 
                 // Appel à la BDD à travers une fonction du modèle.
-                $retour = insertion($bdd, $values, $table);
+                $retour = insertion($bdd, $table, $values);
                 
                 if ($retour) {
                     $alerte = "Ajout réussie";

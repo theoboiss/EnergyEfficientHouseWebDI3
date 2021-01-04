@@ -28,8 +28,12 @@ switch ($function) {
         
         $liste = recupereTous($bdd, $table);
         
-        if(mysqli_num_rows($liste) <= 0) {
-            $alerte = "Aucune région enregistrée pour le moment";
+        if($liste){
+            if(mysqli_num_rows($liste) <= 0) {
+                $alerte = "Aucune région enregistrée pour le moment";
+            }else{
+
+            }
         }
         
         break;
@@ -50,11 +54,11 @@ switch ($function) {
             } else {
                 
                 $values =  [
-                    'LibRegion' => $_POST['libelle']
+                    'nomRegion' => $_POST['libelle']
                 ];
                 
                 // Appel à la BDD à travers une fonction du modèle.
-                $retour = insertion($bdd, $values, $table);
+                $retour = insertion($bdd, $table, $values);
                 
                 if ($retour) {
                     $alerte = "Ajout réussie";
@@ -65,7 +69,40 @@ switch ($function) {
         }
         
         break;
+
+    /*case 'modifier':
+
+        //Modifier une région existante
         
+        $title = "Modifier une région";
+        $vue = "ajout_region";
+        $alerte = false;
+        
+        // Cette partie du code est appelée si le formulaire a été posté
+        if (isset($_POST['libelle'])) {
+            
+            if( !estUneChaine($_POST['libelle'])) {
+                $alerte = "Le libellé de la région doit être une chaîne de caractère.";
+                
+            } else {
+                
+                $values =  [
+                    'nomRegion' => $_POST['libelle']
+                ];
+                
+                // Appel à la BDD à travers une fonction du modèle.
+                $retour = metAJour($bdd, $table, $values, ['nomRegion' => $id] );
+                
+                if ($retour) {
+                    $alerte = "Ajout réussie";
+                } else {
+                    $alerte = "L'ajout dans la BDD n'a pas fonctionné";
+                }
+            }
+        }
+        
+        break;*/
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";

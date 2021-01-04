@@ -22,17 +22,17 @@
     
         <tr> 
             <td>
-		<?php echo $element['idDept']; ?>
+		<?php echo $element['Id_Departement']; ?>
             </td>
             <td>
-        	<?php echo $element['LibDept']; ?>
+        	<?php echo $element['nomDepartement']; ?>
             </td>
             <td>
-        	<?php echo $element['idRegion']; ?>
+        	<?php echo $element['Id_Region']; ?>
             </td>
             <?php
-            echo '<td><a href="index.php?cible=region&fonction=modifier&id='.$element['idDept'].'">Modifier</a></td>';
-            echo '<td><a href="index.php?cible=region&fonction=supprimer&id='.$element["idDept"].'">Supprimer</a></td>';
+            echo '<td><a href="index.php?cible=region&fonction=modifier&id='.$element['Id_Departement'].'">Modifier</a></td>';
+            echo '<td><a href="index.php?cible=region&fonction=supprimer&id='.$element["Id_Departement"].'">Supprimer</a></td>';
             ?>
         </tr>
     

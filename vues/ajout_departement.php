@@ -17,7 +17,7 @@
         <option value="default">Choisissez</option>
         <?php  
             foreach ($liste as $element) { 
-                echo '<option value="'.$element['idRegion'].'">'.$element['LibRegion'].'</option>';
+                echo '<option value="'.$element['Id_Region'].'">'.$element['nomRegion'].'</option>';
             }
         ?>
     </select>
