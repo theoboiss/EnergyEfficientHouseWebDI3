@@ -8,7 +8,7 @@ INSERT INTO `region` (nomRegion) VALUES ("Occitanie");
 INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Finistere", 1);
 INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Indre et Loire", 2);
 INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Ardennes", 3);
-INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Hérault", 2);
+INSERT INTO `departement` (nomDepartement, Id_Region) VALUES ("Herault", 2);
 
 INSERT INTO `ville` (code_postal, nom_ville, Id_Departement) VALUES (29200, "Brest", 1);
 INSERT INTO `ville` (code_postal, nom_ville, Id_Departement) VALUES (37000, "Tours", 2);
