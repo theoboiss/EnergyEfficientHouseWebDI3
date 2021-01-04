@@ -3,7 +3,12 @@
 * Vue : liste des régions déjà enregistrés
 */
 ?>
-
+<!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <meta charset="UTF-8" />
+            <link rel="stylesheet" href="public/css/styles_con.css"/>
+        </head>
 <p><?php echo $entete; ?></p>
 
 
@@ -21,14 +26,14 @@
     
         <tr> 
             <td>
-		<?php echo $element['idRegion']; ?>
+		<?php echo $element['Id_Region']; ?>
             </td>
             <td>
-        	<?php echo $element['LibRegion']; ?>
+        	<?php echo $element['nomRegion']; ?>
             </td>
             <?php
-            echo '<td><a href="index.php?cible=region&fonction=modifier&id='.$element['idRegion'].'">Modifier</a></td>';
-            echo '<td><a href="index.php?cible=region&fonction=supprimer&id='.$element["idRegion"].'">Supprimer</a></td>';
+            echo '<td><a href="index.php?cible=region&fonction=modifier&id='.$element['Id_Region'].'">Modifier</a></td>';
+            echo '<td><a href="index.php?cible=region&fonction=supprimer&id='.$element["Id_Region"].'">Supprimer</a></td>';
             ?>
         </tr>
     
