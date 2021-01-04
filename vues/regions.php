@@ -12,7 +12,7 @@
 <p><?php echo $entete; ?></p>
 
 
-<table>
+<table class="region_table">
 	<thead>
 		<tr>
 
@@ -25,10 +25,10 @@
     <?php foreach ($liste as $element) { ?>
     
         <tr> 
-            <td>
+            <td class="region_td">
 		<?php echo $element['Id_Region']; ?>
             </td>
-            <td>
+            <td class="region_td">
         	<?php echo $element['nomRegion']; ?>
             </td>
             <?php
