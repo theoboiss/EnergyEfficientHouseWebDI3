@@ -3,10 +3,6 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
-/* 
-    Created on : 26 févr. 2020, 15:49:35
-    Author     : TogbeMaurras
-*/
 
 .interface_conn_insc {
     width: 100%;
@@ -101,6 +97,68 @@ and open the template in the editor.
 }
 
 .region_td {
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.departement_table {
+    background-color: pink;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.departement_td {
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.ville_table {
+    background-color: pink;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.ville_td {
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.ville_form {
+    background-color: pink;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.departement_form {
+    background-color: pink;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: 1px;
+    border-color: blue;
+    border-style: solid;
+}
+
+.region_form {
+    background-color: pink;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
     border-width: 1px;
     border-color: blue;
     border-style: solid;

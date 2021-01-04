@@ -15,9 +15,7 @@
 <table class="region_table">
 	<thead>
 		<tr>
-
-			<th>Identifiant</th>
-			<th>Libellé</th>
+			<th>Nom</th>
 		</tr>
 	</thead>
 	<tbody>	
@@ -25,9 +23,6 @@
     <?php foreach ($liste as $element) { ?>
     
         <tr> 
-            <td class="region_td">
-		<?php echo $element['Id_Region']; ?>
-            </td>
             <td class="region_td">
         	<?php echo $element['nomRegion']; ?>
             </td>

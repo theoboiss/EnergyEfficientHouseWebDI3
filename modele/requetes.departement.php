@@ -25,4 +25,14 @@ function rechercheParType(mysqli $bdd, string $table, string $id): array {
     
 }
 
+function afficheDept(mysqli $bdd){
+    $query = 'SELECT * FROM departement NATURAL JOIN region ORDER BY nomDepartement';
+    return mysqli_query($bdd, $query);
+}
+
+function supprDept(mysqli $bdd, int $id){
+    $query = 'DELETE FROM departement WHERE Id_Departement = '.$id;
+    return mysqli_query($bdd, $query);
+}
+
 ?>
