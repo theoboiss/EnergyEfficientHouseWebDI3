@@ -76,7 +76,29 @@ switch ($function) {
         }
         
         break;
-        
+    
+    case 'supprimer':
+       //liste des départements enregistrés
+            
+        $vue = "departements";
+        $title = "Les départements";
+        if (supprDept($bdd, $_GET['id'])){
+            $alerte = "Suppression réussi";
+        }else{
+            $alerte = "Échec de la suppression dans la BDD";
+        }    
+        $entete = "Voici la liste des départements déjà enregistrées :";
+            
+            $liste = afficheDept($bdd);
+            
+            if($liste){
+                if(mysqli_num_rows($liste) <= 0) {
+                    $alerte = "Aucun département enregistrée pour le moment";
+                }
+            }
+            
+            break;    
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";

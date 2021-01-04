@@ -30,4 +30,9 @@ function afficheDept(mysqli $bdd){
     return mysqli_query($bdd, $query);
 }
 
+function supprDept(mysqli $bdd, int $id){
+    $query = 'DELETE FROM departement WHERE Id_Departement = '.$id;
+    return mysqli_query($bdd, $query);
+}
+
 ?>

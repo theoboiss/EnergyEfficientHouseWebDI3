@@ -80,6 +80,7 @@ switch ($function) {
         }
         
         break;
+        
     case 'supprimer':
         $title = "Ville";
         $vue = "ville";

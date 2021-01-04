@@ -32,8 +32,8 @@
         	<?php echo $element['nomRegion']; ?>
             </td>
             <?php
-            echo '<td class="departement_td"><a href="index.php?cible=region&fonction=modifier&id='.$element['Id_Departement'].'">Modifier</a></td>';
-            echo '<td class="departement_td"><a href="index.php?cible=region&fonction=supprimer&id='.$element["Id_Departement"].'">Supprimer</a></td>';
+            echo '<td class="departement_td"><a href="index.php?cible=departement&fonction=modifier&id='.$element['Id_Departement'].'">Modifier</a></td>';
+            echo '<td class="departement_td"><a href="index.php?cible=departement&fonction=supprimer&id='.$element["Id_Departement"].'">Supprimer</a></td>';
             ?>
         </tr>
     
