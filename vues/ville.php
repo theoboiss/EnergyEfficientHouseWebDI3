@@ -35,8 +35,8 @@
         	<?php echo $element['nomDepartement']; ?>
             </td>
             <?php
-            echo '<td class="ville_td"><a href="index.php?cible=region&fonction=modifier&id='.$element['Id_Departement'].'">Modifier</a></td>';
-            echo '<td class="ville_td"><a href="index.php?cible=region&fonction=supprimer&id='.$element["Id_Departement"].'">Supprimer</a></td>';
+            echo '<td class="ville_td"><a href="index.php?cible=ville&fonction=modifier&id='.$element['Id_Ville'].'">Modifier</a></td>';
+            echo '<td class="ville_td"><a href="index.php?cible=ville&fonction=supprimer&id='.$element["Id_Ville"].'">Supprimer</a></td>';
             ?>
         </tr>
     

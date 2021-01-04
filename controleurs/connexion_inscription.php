@@ -17,7 +17,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
 
     $function = "";
     $vue = "accueil";
-    $title = "Acceuil";
+    $title = "Accueil";
 } else if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
     $function = "";
     $vue = "connexion_inscription";
@@ -58,7 +58,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
                             $alerte = "Connecte en tant que " . $_SESSION['name'];
 
                             $vue = "accueil";
-                            $title = "Acceuil";
+                            $title = "Accueil";
                             break;
                         }
                     }
@@ -122,7 +122,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
                                     $alerte = "Connecte en tant que " . $_SESSION['name'];
 
                                     $vue = "accueil";
-                                    $title = "Acceuil";
+                                    $title = "Accueil";
                                     break;
                                 }
                                 $alerte = "Echec lors de la connexion, veuillez reessayer plus tard ou nous contacter";

@@ -25,4 +25,9 @@ function rechercheParType(mysqli $bdd, string $table, string $id): array {
     
 }
 
+function supprRegion(mysqli $bdd, int $id){
+    $query = 'DELETE FROM region WHERE Id_Region ='.$id;
+    return mysqli_query($bdd, $query);
+}
+
 ?>

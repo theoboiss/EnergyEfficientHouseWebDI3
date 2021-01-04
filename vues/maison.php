@@ -51,6 +51,9 @@
                     <td class="maison_td">
                     <?php echo $element['numMaison']," ", $element['rue']," ", $element['code_postal']," ", $element['nom_ville']," ", $element['nomDepartement']," ", $element['nomRegion']; ?>
                     </td>
+                    <?php
+                    echo '<td><a href="index.php?cible=maisons&fonction=modifier&id='.$element['Id_Maison'].'">Modifier</a></td>';
+                    ?>
                 </tr>
             
             <?php } ?>

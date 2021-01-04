@@ -50,6 +50,10 @@
                     <td class='appartement_td'>
                     <?php echo $element['dateFinLocation']; ?>
                     </td>
+                    <?php
+                    echo '<td><a href="index.php?cible=pieces&fonction=afficherPieces&id='.$element['Id_Appartement'].'">Pièces</a></td>';
+                    echo '<td><a href="index.php?cible=appartements&fonction=modifier&id='.$element['Id_Appartement'].'">Modifier</a></td>';
+                    ?>
                 </tr>
             
             <?php } ?>
@@ -62,7 +66,6 @@
 
         <p><a href="index.php?cible=appartements&fonction=ajoutAppartement">Ajouter un appartement</a></p>
         <p><a href="index.php?cible=dateLocation&fonction=ajouterDateLocation">Ajouter une date de location</a></p>
-        <p><a href="index.php?cible=pieces&fonction=ajouterPiece">Ajouter une pièce</a></p>
 
         <p><a href="index.php">Accueil</a></p>
     </body>

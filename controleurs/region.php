@@ -103,6 +103,29 @@ switch ($function) {
         
         break;*/
 
+    case 'supprimer':
+
+        $vue = "regions";
+        $title = "Les régions";
+        if (supprRegion($bdd, $_GET['id'])){
+            $alerte = "Suppression réussi";
+        }else{
+            $alerte = "Échec de la suppression dans la BDD";
+        }
+        $entete = "Voici la liste des régions déjà enregistrées :";
+        
+        $liste = recupereTous($bdd, $table);
+        
+        if($liste){
+            if(mysqli_num_rows($liste) <= 0) {
+                $alerte = "Aucune région enregistrée pour le moment";
+            }else{
+
+            }
+        }
+        
+        break;
+
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
         $vue = "erreur404";
