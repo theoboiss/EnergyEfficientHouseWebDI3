@@ -5,7 +5,7 @@
  */
 
 // on inclut le fichier modèle contenant les appels à la BDD
-include('./modele/requetes.departement.php');
+include('./modele/requetes.villes.php');
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
@@ -19,49 +19,53 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 switch ($function) {
     
     case 'liste':
-        //liste des départements enregistrés
+        //liste des villes enregistrés
         
-        $vue = "departements";
-        $title = "Les départements";
+        $vue = "ville";
+        $title = "Les villes";
         
-        $entete = "Voici la liste des départements déjà enregistrées :";
+        $entete = "Voici la liste des ville déjà enregistrées :";
         
-        $liste = afficheDept($bdd);
+        $liste = afficheVille($bdd);
         
         if($liste){
             if(mysqli_num_rows($liste) <= 0) {
-                $alerte = "Aucun département enregistrée pour le moment";
+                $alerte = "Aucune ville enregistrée pour le moment";
             }
         }
         
         break;
         
     case 'ajout':
-        //Ajouter une nouvelle région
+        //Ajouter une nouvelle ville
         
-        $title = "Ajouter un départements";
-        $vue = "ajout_departement";
+        $title = "Ajouter une ville";
+        $vue = "ajout_ville";
         $alerte = false;
         
-        $liste = recupereTous($bdd, "region");
+        $liste = recupereTous($bdd, "departement");
         
         if(mysqli_num_rows($liste) <= 0) {
-            $alerte = "Aucune région enregistrée pour le moment";
+            $alerte = "Aucun département enregistrée pour le moment";
         }
         // Cette partie du code est appelée si le formulaire a été posté
-        if (isset($_POST['libelle']) && isset($_POST['idRegion'])) {
+        if (isset($_POST['libelle']) && isset($_POST['id_departement']) && isset($_POST['code_postal'])) {
             
             if( !estUneChaine($_POST['libelle'])) {
-                $alerte = "Le libellé du département doit être une chaîne de caractère.";
+                $alerte = "Le libellé de la ville doit être une chaîne de caractère.";
                 
-            } elseif( !estUnEntier($_POST['idRegion'])) {
-                $alerte = "Le numéro de la région doit être un entier.";
+            } elseif( !estUnEntier($_POST['id_departement'])) {
+                $alerte = "Le numéro du département doit être un entier.";
+            
+            } elseif( !estUnEntier($_POST['code_postal'])) {
+                $alerte = "Le code postal doit être un entier.";
                 
             } else {
                 
                 $values =  [
-                    'nomDepartement' => $_POST['libelle'],
-                    'Id_Region' => $_POST['idRegion']
+                    'nom_ville' => $_POST['libelle'],
+                    'code_postal' => $_POST['code_postal'],
+                    'Id_Departement' => $_POST['id_departement']
                 ];
                 
                 // Appel à la BDD à travers une fonction du modèle.
