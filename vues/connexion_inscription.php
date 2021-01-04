@@ -35,7 +35,7 @@
                         <fieldset class="inscription">
 
                             <legend>Inscription</legend>
-                            <form action="" method="post" name="signin">
+                            <form action="" method="post" name="logInOut">
                             
                                 <input type="text" name="nomUser" placeholder="*Nom d'utilisateur"><br/>
                                 <input type="text" name="emailUtilisateur" placeholder="*e-mail"><br/>
