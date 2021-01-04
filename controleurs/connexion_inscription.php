@@ -17,7 +17,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
 
     $function = "";
     $vue = "accueil";
-    $title = "Acceuil";
+    $title = "Accueil";
 } else if (!isset($_POST['fonction']) || empty($_POST['fonction'])) {
     $function = "";
     $vue = "connexion_inscription";
