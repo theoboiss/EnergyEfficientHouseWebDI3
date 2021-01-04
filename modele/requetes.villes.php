@@ -30,4 +30,9 @@ function afficheVille(mysqli $bdd) {
     return mysqli_query($bdd, $query);
 }
 
+function supprVille(mysqli $bdd, int $id) {
+    $query = 'DELETE FROM ville WHERE Id_ville = '.$id;
+    return mysqli_query($bdd, $query);
+}
+
 ?>
