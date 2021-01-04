@@ -17,7 +17,7 @@ function afficherAppareils(mysqli $bdd) {
                                                    FROM piece NATURAL JOIN appartement
                                                    WHERE Id_Appartement IN (SELECT Id_Appartement
                                                                             FROM appartement NATURAL JOIN locataire
-                                                                            WHERE Id_Utilisateur = 2 AND ((dateFinLocation IS NULL) OR (DATE(NOW()) BETWEEN dateDebutLocation AND dateFinLocation)))) ORDER BY Id_Piece';
+                                                                            WHERE Id_Utilisateur =' . $_SESSION['id'] . ' AND ((dateFinLocation IS NULL) OR (DATE(NOW()) BETWEEN dateDebutLocation AND dateFinLocation)))) ORDER BY Id_Piece';
     
     return mysqli_query($bdd, $query);
     
