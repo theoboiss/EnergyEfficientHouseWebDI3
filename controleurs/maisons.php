@@ -82,6 +82,51 @@ switch ($function) {
         
         break;
 
+    case 'modifier':
+
+        //Modifier un appartement existant
+        
+        $title = "Modifier un appartement";
+        $vue = "modifier_maison";
+        $alerte = false;
+        $getMaison = getMaison($bdd, $_GET['id']);
+
+
+        // Cette partie du code est appelée si le formulaire a été posté
+        
+        if (isset($_POST['nomMaison'])) {
+            
+            if( !estUneChaine($_POST['nomMaison'])) {
+                $alerte = "Le nom de la maison doit être une chaîne de caractère.";
+
+            } else if (!estUnEntier($_POST['degreIsolation'])) {
+                $alerte = "Le degré d'isolation doit être un entier. ";
+
+            } else if (!estUnEntier($_POST['evaluationBase'])) {
+                $alerte = "L'évaluation de base doit être un entier. ";
+
+            } else {
+
+                $valuesMaison =  [
+                    'nomMaison' => $_POST['nomMaison'],
+                    'degreIsolation' => $_POST['degreIsolation'],
+                    'evaluationBase' => $_POST['evaluationBase'],
+
+                ];
+                
+                // Appel à la BDD à travers une fonction du modèle.
+                $modifierMaison = modifierMaison($bdd, $valuesMaison, ['Id_Maison' => $_GET['id']]);
+                
+                if ($modifierMaison) {
+                    $alerte = "Modification réussie";
+                } else {
+                    $alerte = "La modification dans la BDD n'a pas fonctionné";
+                }
+            }
+        }
+        
+        break;
+
         
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET

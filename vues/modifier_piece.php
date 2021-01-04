@@ -1,6 +1,6 @@
 <?php
 /**
-* Vue : ajouter une pièce
+* Vue : modifier une pièce
 */
 ?>
 
@@ -17,21 +17,19 @@
 
         <form method="POST" action="">
 
-            <p><label for="id_libelle">Libellé :</label>
+            <?php foreach ($getPiece as $element) echo '<p><label for="id_libelle">Libellé :</label>
             <input type="text" id="id_libelle"  name="libellePiece" 
-                   placeholder="Entrez le libellé" required=""/></p>
+                   value =' . $element['libellePiece'] . ' required=""/></p>
 
             <p><label for="Id_Type_Piece">Type :</label>
             <select id="Id_Type_Piece" name="typePiece" >
-                <option value="default">Choisissez le type</option>
-                <?php              
-                    foreach ($selectTypePiece as $element) { 
-                        echo '<option value="'.$element['Id_Type_Piece'].'">'.$element['libelle_type_piece'].'</option>';
+                <option value="'.$element['Id_Type_Piece'].'">'.$element['libelle_type_piece'].'</option>' ;           
+                    foreach ($selectTypePiece as $element2) { 
+                        echo '<option value="'.$element2['Id_Type_Piece'].'">'.$element2['libelle_type_piece'].'</option>';
                     }
-                ?>
-            </select></p>
+            echo '</select></p>' ; ?>
 
-            <p><button type="submit" id="id_ajout" name="submit">Ajouter</button></p>
+            <p><button type="submit" id="id_ajout" name="submit">Modifier</button></p>
 
         </form>
 

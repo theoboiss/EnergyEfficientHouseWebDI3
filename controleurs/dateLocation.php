@@ -43,14 +43,14 @@ switch ($function) {
                         'Id_Appartement' => $_POST['Id_Appartement'],
                         'dateDebutLocation' => $_POST['dateDebut'],
                         'dateFinLocation' => $_POST['dateFin'],
-                        'Id_Utilisateur' => 2
+                        'Id_Utilisateur' => $_SESSION['id']
                     ]; 
                 } else {
 
                     $values =  [
                         'Id_Appartement' => $_POST['Id_Appartement'],
                         'dateDebutLocation' => $_POST['dateDebut'],
-                        'Id_Utilisateur' => 2
+                        'Id_Utilisateur' => $_SESSION['id']
                     ];
                 }
                     

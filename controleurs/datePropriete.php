@@ -47,7 +47,7 @@ switch ($function) {
                         'Id_Maison' => $_POST['Id_Maison'],
                         'dateDebutPropriete' => $_POST['dateDebut'],
                         'dateFinPropriete' => $_POST['dateFin'],
-                        'Id_Utilisateur' => 2
+                        'Id_Utilisateur' => $_SESSION['id']
                     ];
 
                 } else {
@@ -55,7 +55,7 @@ switch ($function) {
                     $values =  [
                         'Id_Maison' => $_POST['Id_Maison'],
                         'dateDebutPropriete' => $_POST['dateDebut'],
-                        'Id_Utilisateur' => 2
+                        'Id_Utilisateur' => $_SESSION['id']
                     ];
 
                 }

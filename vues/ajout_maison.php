@@ -29,7 +29,7 @@
             <input type="int" id="evaluationBase"  name="evaluationBase" 
                    placeholder="Entrez l'évaluation de base" required=""/></p>
 
-            <p><label for="Id_Adresse">Type :</label>
+            <p><label for="Id_Adresse">Adresse :</label>
             <select id="Id_Adresse" name="Id_Adresse" >
                 <option value="default">Choisissez l'adresse :</option>
                 <?php              

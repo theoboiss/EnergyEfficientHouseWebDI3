@@ -19,8 +19,23 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
 
 switch ($function) {
 
+    case 'afficherPieces':
+        
+        $vue = "piece";
+        $title = "Pièces";
+        
+        $entete = "Voici la liste des pièces de l'appartement :";
+        
+        $afficherPieces = afficherPieces($bdd, $_GET['id']);
+        
+        if(mysqli_num_rows($afficherPieces) <= 0) {
+            $alerte = "Aucune pièce répertoriée pour le moment";
+        }
+        
+        break;
+
     case 'ajouterPiece':
-    //Ajouter une nouvel appartement
+    //Ajouter une nouvelle piece
         
         $title = "Ajouter une pièce";
         $vue = "ajout_piece";
@@ -42,7 +57,7 @@ switch ($function) {
                 $values =  [
                     'libellePiece' => $_POST['libellePiece'],
                     'Id_Type_Piece' => $_POST['typePiece'],
-                    'Id_Appartement' => $_POST['Id_Appartement']
+                    'Id_Appartement' => $_GET['id']
 
                 ];
                 
@@ -53,6 +68,45 @@ switch ($function) {
                     $alerte = "Ajout réussi";
                 } else {
                     $alerte = "L'ajout dans la BDD n'a pas fonctionné";
+                }
+            }
+        }
+        
+        break;
+
+    case 'modifier':
+
+        //Modifier une pièce existante
+        
+        $title = "Modifier une pièce";
+        $vue = "modifier_piece";
+        $alerte = false;
+        $getPiece = getPiece($bdd, $_GET['id']);
+        $selectTypePiece = selectTypePiece($bdd);
+
+
+        // Cette partie du code est appelée si le formulaire a été posté
+        
+        if (isset($_POST['libellePiece'])) {
+            
+            if( !estUneChaine($_POST['libellePiece'])) {
+                $alerte = "Le libellé de la pièce doit être une chaîne de caractère.";
+                
+            } else {
+                
+                $values =  [
+                    'libellePiece' => $_POST['libellePiece'],
+                    'Id_Type_Piece' => $_POST['typePiece'],
+
+                ];
+                
+                // Appel à la BDD à travers une fonction du modèle.
+                $modifierPiece = modifierPiece($bdd, $values, ['Id_Piece' => $_GET['id']]);
+                
+                if ($modifierPiece) {
+                    $alerte = "Modification réussie";
+                } else {
+                    $alerte = "La modification dans la BDD n'a pas fonctionné";
                 }
             }
         }

@@ -83,6 +83,56 @@ switch ($function) {
         
         break;
 
+        case 'modifier':
+
+        //Modifier un appartement existant
+        
+        $title = "Modifier un appartement";
+        $vue = "modifier_appartement";
+        $alerte = false;
+        $selectTypeAppartement = selectTypeAppartement($bdd);
+        $selectMaison = selectMaison($bdd);
+        $getAppartement = getAppartement($bdd, $_GET['id']);
+
+
+        // Cette partie du code est appelée si le formulaire a été posté
+        
+        if (isset($_POST['libelle'])) {
+            
+            if( !estUneChaine($_POST['libelle'])) {
+                $alerte = "Le libellé de l'appartement doit être une chaîne de caractère.";
+                
+            } else if (!estUnEntier($_POST['degreSecuriteAppartement'])) {
+                $alerte = "Le degré de sécurité doit être un entier. ";
+
+            } else if ($_POST['typeAppartement']=="default") {
+                $alerte = "Veuillez sélectionner le type de l'appartement. ";
+
+            } else if ($_POST['maison']=="default") {
+                $alerte = "Veuillez sélectionner une maison. ";
+
+            } else {
+                
+                $values =  [
+                    'libelleAppartement' => $_POST['libelle'],
+                    'degreSecuriteAppartement' => $_POST['degreSecuriteAppartement'],
+                    'Id_Type_Appartement' => $_POST['typeAppartement'],
+
+                ];
+                
+                // Appel à la BDD à travers une fonction du modèle.
+                $modifierAppartement = modifierAppartement($bdd, $values, ['Id_Appartement' => $_GET['id']]);
+                
+                if ($modifierAppartement) {
+                    $alerte = "Modification réussie";
+                } else {
+                    $alerte = "La modification dans la BDD n'a pas fonctionné";
+                }
+            }
+        }
+        
+        break;
+
 
         
     default:
