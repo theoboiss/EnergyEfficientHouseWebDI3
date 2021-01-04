@@ -107,7 +107,8 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
 
                         if (!isset($emailUtilisateur) || empty($emailUtilisateur)
                         || !isset($prenomUtilisateur) || empty($prenomUtilisateur)
-                        || !isset($ageUtilisateur)    || empty($ageUtilisateur) ) {
+                        || !isset($ageUtilisateur)    || empty($ageUtilisateur)
+                        || !isset($mdpUtilisateur)    || empty($mdpUtilisateur) ) {
                             $alerte = "Formulaire incomplet";
                         } else {
                             if (!insererUtilisateurDDB($bdd,$nomUser,$emailUtilisateur,$mdpUtilisateur,$prenomUtilisateur,$ageUtilisateur,$telUtilisateur)) {

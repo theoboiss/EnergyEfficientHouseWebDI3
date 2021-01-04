@@ -68,11 +68,12 @@ if (isset($_POST['nomUser'])
             if (metAJour($bdd, 'utilisateur', ['nomUser' => $nomUser, 'emailUtilisateur' => $emailUtilisateur, 'mdpUtilisateur' => $mdpUtilisateur,
                          'prenomUtilisateur' => $prenomUtilisateur, 'telUtilisateur' => $telUtilisateur, 'ageUtilisateur' => $ageUtilisateur], ['Id_Utilisateur' => $_SESSION['id']])) {
                 $result = connexionUtilisateur($bdd, $nomUser, $mdpUtilisateur);
+
                 if ($result && mysqli_num_rows($result) == 1) {
                     $_SESSION['name'] = $nomUser;
-                    $vue = "profil";
-                    $title = "Mon profil";
-                    $alerte = "Changements effectues";
+                    header('Location: index.php?cible=profil');
+                    exit();
+                    
                 } else {
                     $nomUser = $infos[1];
                     $prenomUtilisateur = $infos[5];

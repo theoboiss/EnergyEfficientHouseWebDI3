@@ -90,7 +90,7 @@ INSERT INTO `emissionAppareil` (emission, Id_Appareil, Id_Matiere) VALUES (1, 4,
 INSERT INTO `utilisateur` (nomUser, emailUtilisateur, mdpUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Bernou", "bernardu29@gmail.com", "1234", "0250674560", "Bernard", 47, '2019-12-22', "actif");
 INSERT INTO `utilisateur` (nomUser, emailUtilisateur, mdpUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Sa37", "SabrinaG@gmail.com", "motdepasse", "0250558760", "Sabrina", 39, '2020-12-23', "actif");
 INSERT INTO `utilisateur` (nomUser, emailUtilisateur, mdpUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Antoine", "Antoine@gmail.com", "01/01/1990", "", "Antoine", 24, '2018-05-22', "inactif");
-INSERT INTO `utilisateur` (nomUser, emailUtilisateur, mdpUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Boulu", "hugoboss37@gmail.com", "", "0610118218", "Hugo", 25, '2019-09-15', "inactif");
+INSERT INTO `utilisateur` (nomUser, emailUtilisateur, mdpUtilisateur, telUtilisateur, prenomUtilisateur, ageUtilisateur, dateCreationCompte, etatCompte) VALUES ("Boulu", "hugoboss37@gmail.com", ". .", "0610118218", "Hugo", 25, '2019-09-15', "inactif");
 
 INSERT INTO `doit_contenir` (Id_Type_Piece, Id_Type_Appartement) VALUES (1, 1);
 INSERT INTO `doit_contenir` (Id_Type_Piece, Id_Type_Appartement) VALUES (2, 2);
@@ -114,6 +114,14 @@ INSERT INTO `proprietaire` (dateDebutPropriete,dateFinPropriete, Id_Maison, Id_U
 
 
 /*
+--
+-- Base de données :  `projet`
+--
+
+DROP DATABASE IF EXISTS `maison_econome`;
+CREATE DATABASE `maison_econome`;
+USE `maison_econome`;
+
 -- --------------------------------------------------------
 
 --
@@ -411,8 +419,9 @@ DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE IF NOT EXISTS `utilisateur` (
   `Id_Utilisateur` int(11) NOT NULL AUTO_INCREMENT,
   `nomUser` varchar(30) NOT NULL,
-  `emailUtilisateur` varchar(50) DEFAULT NULL,
-  `telUtilisateur` int(11) DEFAULT NULL,
+  `emailUtilisateur` varchar(50) NOT NULL,
+  `mdpUtilisateur` varchar(16) NOT NULL,
+  `telUtilisateur` varchar(10) DEFAULT NULL,
   `prenomUtilisateur` varchar(30) NOT NULL,
   `ageUtilisateur` int(11) NOT NULL,
   `dateCreationCompte` date DEFAULT NULL,
@@ -538,5 +547,4 @@ ALTER TABLE `substance`
 ALTER TABLE `ville`
   ADD CONSTRAINT `ville_ibfk_1` FOREIGN KEY (`Id_Departement`) REFERENCES `departement` (`Id_Departement`);
 COMMIT;
-
 */
