@@ -26,9 +26,6 @@
     
         <tr> 
             <td class="region_td">
-		<?php echo $element['Id_Region']; ?>
-            </td>
-            <td class="region_td">
         	<?php echo $element['nomRegion']; ?>
             </td>
             <?php
