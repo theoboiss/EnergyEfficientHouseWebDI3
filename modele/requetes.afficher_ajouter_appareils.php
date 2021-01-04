@@ -12,7 +12,7 @@ include("modele/connexion.php");
 function afficherAppareils(mysqli $bdd) {
     
     $query = 'SELECT *
-                                FROM appareil NATURAL JOIN piece NATURAL JOIN type_appareil
+                                FROM appareil NATURAL JOIN piece NATURAL JOIN appartement NATURAL JOIN type_appareil
                                 WHERE Id_Piece IN (SELECT Id_Piece
                                                    FROM piece NATURAL JOIN appartement
                                                    WHERE Id_Appartement IN (SELECT Id_Appartement

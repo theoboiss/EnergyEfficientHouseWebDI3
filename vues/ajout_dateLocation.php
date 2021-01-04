@@ -32,7 +32,6 @@
 
             <p><label for="id_dateFin">Date de fin :</label>
             <input type="date" id="id_dateFin"  name="dateFin"/></p>
-            
 
             <p><button type="submit" id="id_ajout" name="submit">Ajouter</button></p>
 

@@ -23,6 +23,7 @@ function ajoutPropriete(mysqli $bdd, array $values): bool {
     $valeurs = substr_replace($valeurs, '', -2, 1);
 
     $query = ' INSERT INTO proprietaire' . ' (' . $attributs . ') VALUES (' . $valeurs . ')';
+    
     //echo $query;
     //return mysqli_insert_id(mysqli_query($bdd, $query)) != 0 ? true : false;
     return mysqli_query($bdd, $query) != false ? true : false;

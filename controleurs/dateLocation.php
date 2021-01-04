@@ -36,6 +36,8 @@ switch ($function) {
                     $alerte = "Veuillez sélectionner l'appartement. ";
 
             } else {
+
+                if(!empty($_POST['dateFin'])) {
                 
                     $values =  [
                         'Id_Appartement' => $_POST['Id_Appartement'],
@@ -43,6 +45,14 @@ switch ($function) {
                         'dateFinLocation' => $_POST['dateFin'],
                         'Id_Utilisateur' => 2
                     ]; 
+                } else {
+
+                    $values =  [
+                        'Id_Appartement' => $_POST['Id_Appartement'],
+                        'dateDebutLocation' => $_POST['dateDebut'],
+                        'Id_Utilisateur' => 2
+                    ];
+                }
                     
                 // Appel à la BDD à travers une fonction du modèle.
                 $ajoutLocation = ajoutLocation($bdd, $values);

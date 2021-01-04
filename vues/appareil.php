@@ -42,10 +42,10 @@
                     <?php echo $element['descriptionAppareil']; ?>
                     </td>
                     <td class="appareil_td">
-                	<?php echo $element['Id_Piece']; ?>
+                	<?php echo $element['libellePiece']; ?>
                     </td>
                     <td class="appareil_td">
-                    <?php echo $element['Id_Appartement']; ?>
+                    <?php echo $element['libelleAppartement']; ?>
                     </td>
                 </tr>
             

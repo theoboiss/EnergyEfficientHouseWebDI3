@@ -36,14 +36,29 @@ switch ($function) {
             if ($_POST['Id_Maison']=="default") {
                     $alerte = "Veuillez sélectionner la maison. ";
 
+            } elseif (empty($_POST['dateDebut'])) {
+                $alerte = "Veuillez indiquer une date de début de propriété. ";
+
             } else {
+
+                if (!empty($_POST['dateFin'])) {
                 
-                 $values =  [
-                    'Id_Maison' => $_POST['Id_Maison'],
-                    'dateDebutPropriete' => $_POST['dateDebut'],
-                    'dateFinPropriete' => $_POST['dateFin'],
-                    'Id_Utilisateur' => 2
-                ];
+                     $values =  [
+                        'Id_Maison' => $_POST['Id_Maison'],
+                        'dateDebutPropriete' => $_POST['dateDebut'],
+                        'dateFinPropriete' => $_POST['dateFin'],
+                        'Id_Utilisateur' => 2
+                    ];
+
+                } else {
+
+                    $values =  [
+                        'Id_Maison' => $_POST['Id_Maison'],
+                        'dateDebutPropriete' => $_POST['dateDebut'],
+                        'Id_Utilisateur' => 2
+                    ];
+
+                }
                     
                 // Appel à la BDD à travers une fonction du modèle.
                 $ajoutPropriete = ajoutPropriete($bdd, $values);
