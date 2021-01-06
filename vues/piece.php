@@ -53,6 +53,5 @@
         <?php echo '<p><a href="index.php?cible=pieces&fonction=ajouterPiece&id=' .$element['Id_Piece']. '">Ajouter une pièce</a></p>' ?>
         <p><a href="index.php?cible=appartements&fonction=afficherAppartements">Retour aux appartements</a></p>
 
-        <p><a href="index.php">Accueil</a></p>
     </body>
 </html>

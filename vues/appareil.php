@@ -66,6 +66,5 @@
 
         <p><a href="index.php?cible=appareils&fonction=ajoutAppareil">Ajouter un appareil</a></p>
 
-        <p><a href="index.php">Accueil</a></p>
     </body>
 </html>

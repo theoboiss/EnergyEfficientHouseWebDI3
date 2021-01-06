@@ -36,7 +36,6 @@
         </form>
 
         <p><a href="index.php?cible=appartements&fonction=afficherAppartements">Retour aux appartements</a></p>
-        <p><a href="index.php">Accueil</a></p>
 
     </body>
 </html>
