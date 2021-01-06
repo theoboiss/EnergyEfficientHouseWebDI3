@@ -12,12 +12,12 @@
 <p><?php echo $entete; ?></p>
 
 
-<table class="departement_table">
+<table class="object_table">
 	<thead>
 		<tr>
 
-			<th>Nom</th>
-			<th>Région</th>
+			<th class="object_td">Nom</th>
+			<th class="object_td">Région</th>
 		</tr>
 	</thead>
 	<tbody>	
@@ -25,15 +25,15 @@
     <?php foreach ($liste as $element) { ?>
     
         <tr> 
-            <td class="departement_td">
+            <td class="object_td">
         	<?php echo $element['nomDepartement']; ?>
             </td>
-            <td class="departement_td">
+            <td class="object_td">
         	<?php echo $element['nomRegion']; ?>
             </td>
             <?php
-            echo '<td class="departement_td"><a href="index.php?cible=departement&fonction=modifier&id='.$element['Id_Departement'].'">Modifier</a></td>';
-            echo '<td class="departement_td"><a href="index.php?cible=departement&fonction=supprimer&id='.$element["Id_Departement"].'">Supprimer</a></td>';
+            echo '<td class="object_td"><a href="index.php?cible=departement&fonction=modifier&id='.$element['Id_Departement'].'">Modifier</a></td>';
+            echo '<td class="object_td"><a href="index.php?cible=departement&fonction=supprimer&id='.$element["Id_Departement"].'">Supprimer</a></td>';
             ?>
         </tr>
     
