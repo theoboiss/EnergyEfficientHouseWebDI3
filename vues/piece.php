@@ -50,7 +50,7 @@
 
         <?php echo AfficheAlerte($alerte); ?>
 
-        <?php echo '<p><a href="index.php?cible=pieces&fonction=ajouterPiece&id=' .$element['Id_Piece']. '">Ajouter une pièce</a></p>' ?>
+        <?php echo '<p><a href="index.php?cible=pieces&fonction=ajouterPiece&id=' .$_GET['id']. '">Ajouter une pièce</a></p>' ?>
         <p><a href="index.php?cible=appartements&fonction=afficherAppartements">Retour aux appartements</a></p>
 
     </body>
