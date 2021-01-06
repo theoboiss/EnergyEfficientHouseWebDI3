@@ -58,7 +58,6 @@
         </form>
 
         <p><a href="index.php?cible=appareils&fonction=afficherAppareils">Retour aux appareils</a></p>
-        <p><a href="index.php">Accueil</a></p>
 
     </body>
 </html>

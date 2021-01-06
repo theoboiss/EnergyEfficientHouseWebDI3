@@ -42,7 +42,6 @@
 
         <p><a href="index.php?cible=maisons&fonction=ajoutMaison">Ajouter une maison</a></p>
         <p><a href="index.php?cible=maisons&fonction=afficherMaisons">Retour aux maisons</a></p>
-        <p><a href="index.php">Accueil</a></p>
 
     </body>
 </html>
