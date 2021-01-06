@@ -43,6 +43,7 @@
 
         </form>
 
+        <p><a href="index.php?cible=adresses&fonction=ajoutAdresse">Ajouter une adresse</a></p>
         <p><a href="index.php?cible=maisons&fonction=afficherMaisons">Retour aux maisons</a></p>
         <p><a href="index.php?cible=datePropriete&fonction=ajouterDatePropriete">Ajouter une date de propriété</a></p>
 

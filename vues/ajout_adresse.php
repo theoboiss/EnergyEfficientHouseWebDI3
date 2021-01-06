@@ -40,7 +40,7 @@
 
         </form>
 
-        <p><a href="index.php?cible=maisons&fonction=ajoutMaison">Ajouter une maison</a></p>
+        <p><a href="index.php?cible=maisons&fonction=ajoutMaison">Retour à l'ajout de ma maison</a></p>
         <p><a href="index.php?cible=maisons&fonction=afficherMaisons">Retour aux maisons</a></p>
 
     </body>
