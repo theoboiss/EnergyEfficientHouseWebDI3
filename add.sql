@@ -102,8 +102,8 @@ INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) 
 INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) VALUES ('2020-01-05', '2020-01-06', 3);
 INSERT INTO `dteutilisation` (dteDbtUtilisation,dteFinUtilisation, Id_Appareil) VALUES ('2020-01-07 07-41-02', '2020-01-13 14-22-08', 4);
 
-INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('1995-03-12', '2019-05-30', 1, 1);
-INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('2020-02-01', '2020-10-31', 2, 2);
+INSERT INTO `locataire` (dateDebutLocation, Id_Appartement, Id_Utilisateur) VALUES ('1995-03-12', 1, 1);
+INSERT INTO `locataire` (dateDebutLocation, Id_Appartement, Id_Utilisateur) VALUES ('2020-02-01', 2, 2);
 INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('2020-01-01', '2020-02-31', 3, 3);
 INSERT INTO `locataire` (dateDebutLocation,dateFinLocation, Id_Appartement, Id_Utilisateur) VALUES ('2019-06-20', '2020-01-25', 1, 4);
 
