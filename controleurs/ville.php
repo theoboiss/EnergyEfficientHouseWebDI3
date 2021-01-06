@@ -80,7 +80,31 @@ switch ($function) {
         }
         
         break;
-        
+    case 'modifier':
+        //modifier un département enregistré
+        $vue = "modif_ville";
+        $title = "Modifier une ville";
+        $alerte = false;
+        $liste = getVille($bdd, $_GET['id']);
+        $selectDept = recupereTous($bdd, "departement");
+    
+        if(isset($_POST['libelle']) && isset($_POST['Id_Departement'])){
+            if(!estUneChaine(($_POST['libelle']))){
+                $alerte = "Le nom de la ville doit être une chaine";
+            }else if(!estUnEntier($_POST['Id_Departement'])){
+                $alerte = "l'Id du département doit être un entier";
+            }else{
+                $modifDept = metAJour($bdd, "ville", ['nom_ville' => $_POST['libelle'], 'Id_Departement' => $_POST['Id_Departement']], ['Id_Ville' => $_GET['id']]);
+                if($modifDept){
+                    $alerte = "Modification réussite";
+                }else{
+                    $alerte = "Échec de la modification dans la BDD";
+                }
+            }
+        }
+    
+        break;
+    
     case 'supprimer':
         $title = "Ville";
         $vue = "ville";

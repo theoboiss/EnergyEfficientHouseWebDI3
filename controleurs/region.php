@@ -70,38 +70,28 @@ switch ($function) {
         
         break;
 
-    /*case 'modifier':
+    case 'modifier':
 
-        //Modifier une région existante
-        
+        $vue = "modif_region";
         $title = "Modifier une région";
-        $vue = "ajout_region";
         $alerte = false;
-        
-        // Cette partie du code est appelée si le formulaire a été posté
-        if (isset($_POST['libelle'])) {
-            
-            if( !estUneChaine($_POST['libelle'])) {
-                $alerte = "Le libellé de la région doit être une chaîne de caractère.";
-                
-            } else {
-                
-                $values =  [
-                    'nomRegion' => $_POST['libelle']
-                ];
-                
-                // Appel à la BDD à travers une fonction du modèle.
-                $retour = metAJour($bdd, $table, $values, ['nomRegion' => $id] );
-                
-                if ($retour) {
-                    $alerte = "Ajout réussie";
-                } else {
-                    $alerte = "L'ajout dans la BDD n'a pas fonctionné";
+        $liste = getRegion($bdd, $_GET['id']);
+
+        if(isset($_POST['libelle'])){
+            if(!estUneChaine($_POST['libelle'])){
+                $alerte = "Le nom de Région doit être une chaine de caractère";
+            }else{
+                $modifRegion = metAJour($bdd, "region", ['nomRegion' => $_POST['libelle']], ['Id_Region' => $_GET['id']]);
+                if($modifRegion){
+                    $alerte = "Modification réussite";
+                }else{
+                    $alerte = "Échec de la modification dans la BDD";
                 }
+
             }
         }
         
-        break;*/
+        break;
 
     case 'supprimer':
 

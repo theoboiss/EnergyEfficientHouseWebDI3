@@ -21,8 +21,13 @@ $table = "departement";
  */
 function rechercheParType(mysqli $bdd, string $table, string $id): array {
     
-    return recherche($bdd, $table, ['idDept' => $id]);
+    return recherche($bdd, $table, ['Id_Departement' => $id]);
     
+}
+
+function getDepartement(mysqli $bdd, int $id){
+    $query = 'SELECT * FROM departement NATURAL JOIN region WHERE Id_Departement ='.$id;
+    return mysqli_query($bdd, $query);
 }
 
 function afficheDept(mysqli $bdd){
