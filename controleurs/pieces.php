@@ -41,7 +41,6 @@ switch ($function) {
         $vue = "ajout_piece";
         $alerte = false;
         $selectTypePiece = selectTypePiece($bdd);
-        $selectAppartement = selectAppartement($bdd);
 
 
 
