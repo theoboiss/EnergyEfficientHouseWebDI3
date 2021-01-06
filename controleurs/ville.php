@@ -42,10 +42,12 @@ switch ($function) {
         $title = "Ajouter une ville";
         $vue = "ajout_ville";
         $alerte = false;
+        $liste = [
+            ["nom_ville" => " ", "code_postal" => " ", "Id_Departement" => "default", "nomDepartement" => "Choisissez"]
+        ];
+        $listeDept = recupereTous($bdd, "departement");
         
-        $liste = recupereTous($bdd, "departement");
-        
-        if(mysqli_num_rows($liste) <= 0) {
+        if(mysqli_num_rows($listeDept) <= 0) {
             $alerte = "Aucun département enregistrée pour le moment";
         }
         // Cette partie du code est appelée si le formulaire a été posté
@@ -82,19 +84,21 @@ switch ($function) {
         break;
     case 'modifier':
         //modifier un département enregistré
-        $vue = "modif_ville";
+        $vue = "ajout_ville";
         $title = "Modifier une ville";
         $alerte = false;
         $liste = getVille($bdd, $_GET['id']);
-        $selectDept = recupereTous($bdd, "departement");
+        $listeDept = recupereTous($bdd, "departement");
     
-        if(isset($_POST['libelle']) && isset($_POST['Id_Departement'])){
+        if(isset($_POST['libelle']) && isset($_POST['id_departement'])){
             if(!estUneChaine(($_POST['libelle']))){
                 $alerte = "Le nom de la ville doit être une chaine";
-            }else if(!estUnEntier($_POST['Id_Departement'])){
+            }else if(!estUnEntier($_POST['code_postal'])){
+                $alerte = "Le code postal doit être un entier";
+            }else if(!estUnEntier($_POST['id_departement'])){
                 $alerte = "l'Id du département doit être un entier";
             }else{
-                $modifDept = metAJour($bdd, "ville", ['nom_ville' => $_POST['libelle'], 'Id_Departement' => $_POST['Id_Departement']], ['Id_Ville' => $_GET['id']]);
+                $modifDept = metAJour($bdd, "ville", ['nom_ville' => $_POST['libelle'], 'code_postal' => $_POST['code_postal'], 'Id_Departement' => $_POST['id_departement']], ['Id_Ville' => $_GET['id']]);
                 if($modifDept){
                     $alerte = "Modification réussite";
                 }else{

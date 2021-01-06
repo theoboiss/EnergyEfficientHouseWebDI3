@@ -42,10 +42,12 @@ switch ($function) {
         $title = "Ajouter un départements";
         $vue = "ajout_departement";
         $alerte = false;
+        $liste = [
+            ["nomDepartement" => " ", "Id_Region" => "default", "nomRegion" => "Choisissez"]
+        ];
+        $listeRegion = recupereTous($bdd, "region");
         
-        $liste = recupereTous($bdd, "region");
-        
-        if(mysqli_num_rows($liste) <= 0) {
+        if(mysqli_num_rows($listeRegion) <= 0) {
             $alerte = "Aucune région enregistrée pour le moment";
         }
         // Cette partie du code est appelée si le formulaire a été posté
@@ -79,19 +81,19 @@ switch ($function) {
 
     case 'modifier':
         //modifier un département enregistré
-        $vue = "modif_departement";
+        $vue = "ajout_departement";
         $title = "Modifier un département";
         $alerte = false;
         $liste = getDepartement($bdd, $_GET['id']);
-        $selectRegion = recupereTous($bdd, "region");
+        $listeRegion = recupereTous($bdd, "region");
 
-        if(isset($_POST['libelle']) && isset($_POST['Id_Region'])){
+        if(isset($_POST['libelle']) && isset($_POST['idRegion'])){
             if(!estUneChaine(($_POST['libelle']))){
                 $alerte = "Le nom du département doit être une chaine";
-            }else if(!estUnEntier($_POST['Id_Region'])){
+            }else if(!estUnEntier($_POST['idRegion'])){
                 $alerte = "l'Id de la région doit être un entier";
             }else{
-                $modifDept = metAJour($bdd, "departement", ['nomDepartement' => $_POST['libelle'], 'Id_Region' => $_POST['Id_Region']], ['Id_Departement' => $_GET['id']]);
+                $modifDept = metAJour($bdd, "departement", ['nomDepartement' => $_POST['libelle'], 'Id_Region' => $_POST['idRegion']], ['Id_Departement' => $_GET['id']]);
                 if($modifDept){
                     $alerte = "Modification réussite";
                 }else{

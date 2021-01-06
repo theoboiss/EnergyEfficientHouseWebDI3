@@ -43,6 +43,9 @@ switch ($function) {
         
         $title = "Ajouter une région";
         $vue = "ajout_region";
+        $liste = [
+            ["nomRegion" => " "]
+        ];
         $alerte = false;
         
         // Cette partie du code est appelée si le formulaire a été posté
@@ -72,7 +75,7 @@ switch ($function) {
 
     case 'modifier':
 
-        $vue = "modif_region";
+        $vue = "ajout_region";
         $title = "Modifier une région";
         $alerte = false;
         $liste = getRegion($bdd, $_GET['id']);

@@ -16,20 +16,20 @@
 <form method="POST" action="">
 	
     <label for="id_libelle">Libellé :</label>
-    <input type="text" id="id_libelle"  name="libelle" 
+    <input type="text" id="id_libelle"  name="libelle" value=<?php foreach($liste as $dept){ echo "\"$dept[nomDepartement]\"";} ?>
            placeholder="Entrez le libellé" required=""/>
     
     <label for="id_region">Région :</label>
     <select id="id_idRegion" name="idRegion" required="">
-        <option value="default">Choisissez</option>
+        <option value=<?php foreach($liste as $dept){ echo "\"$dept[Id_Region]\">$dept[nomRegion]</option>";} ?>
         <?php  
-            foreach ($liste as $element) { 
+            foreach ($listeRegion as $element) { 
                 echo '<option value="'.$element['Id_Region'].'">'.$element['nomRegion'].'</option>';
             }
         ?>
     </select>
 
-    <button type="submit" id="id_ajout" name="submit">Ajouter</button>
+    <button type="submit" id="id_ajout" name="submit"><?php echo $function; ?></button>
 
 </form>
 </fieldset>
