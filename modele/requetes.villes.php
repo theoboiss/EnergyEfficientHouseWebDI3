@@ -30,6 +30,13 @@ function afficheVille(mysqli $bdd) {
     return mysqli_query($bdd, $query);
 }
 
+function getVille(mysqli $bdd, int $id) {
+    
+    $query = 'SELECT * FROM ville NATURAL JOIN departement WHERE Id_Ville = '.$id;
+    return mysqli_query($bdd, $query);
+}
+
+
 function supprVille(mysqli $bdd, int $id) {
     $query = 'DELETE FROM ville WHERE Id_ville = '.$id;
     return mysqli_query($bdd, $query);

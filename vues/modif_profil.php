@@ -13,6 +13,7 @@
     </head>
 
     <body>
+        <p><a href="index.php?cible=profil">Retour</a></p>
         <form action="" method="post" name="modifProfile">
             <table>
                 <tr>
@@ -35,5 +36,6 @@
             </table>
             <p><input type="submit" value="Modifier" name="fonction"></p>
         </form>
+        <?php if (isset($message)) echo AfficheAlerte($message) ?>
     </body>
 </html>

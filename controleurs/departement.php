@@ -76,9 +76,34 @@ switch ($function) {
         }
         
         break;
+
+    case 'modifier':
+        //modifier un département enregistré
+        $vue = "modif_departement";
+        $title = "Modifier un département";
+        $alerte = false;
+        $liste = getDepartement($bdd, $_GET['id']);
+        $selectRegion = recupereTous($bdd, "region");
+
+        if(isset($_POST['libelle']) && isset($_POST['Id_Region'])){
+            if(!estUneChaine(($_POST['libelle']))){
+                $alerte = "Le nom du département doit être une chaine";
+            }else if(!estUnEntier($_POST['Id_Region'])){
+                $alerte = "l'Id de la région doit être un entier";
+            }else{
+                $modifDept = metAJour($bdd, "departement", ['nomDepartement' => $_POST['libelle'], 'Id_Region' => $_POST['Id_Region']], ['Id_Departement' => $_GET['id']]);
+                if($modifDept){
+                    $alerte = "Modification réussite";
+                }else{
+                    $alerte = "Échec de la modification dans la BDD";
+                }
+            }
+        }
+
+        break;
     
     case 'supprimer':
-       //liste des départements enregistrés
+       //supprimer un département enregistré
             
         $vue = "departements";
         $title = "Les départements";

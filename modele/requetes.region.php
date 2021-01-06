@@ -21,8 +21,13 @@ $table = "region";
  */
 function rechercheParType(mysqli $bdd, string $table, string $id): array {
     
-    return recherche($bdd, $table, ['idRegion' => $id]);
+    return recherche($bdd, $table, ['id_Region' => $id]);
     
+}
+
+function getRegion(mysqli $bdd, int $id){
+    $query = 'SELECT * FROM region WHERE id_Region ='.$id;
+    return mysqli_query($bdd, $query);
 }
 
 function supprRegion(mysqli $bdd, int $id){
