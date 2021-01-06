@@ -16,16 +16,16 @@
         <p><?php echo $entete; ?></p>
 
 
-        <table class="appareil_table">
+        <table class="object_table">
         	<thead>
         		<tr>
 
-        			<th class="appareil_td">Libellé</th>
-                    <th class="appareil_td">Type</th>
-                    <th class="appareil_td">Description</th>
-                    <th class="appareil_td">Lieu</th>
-        			<th class="appareil_td">Pièce</th>
-                    <th class="appareil_td">Appartement</th>
+        			<th class="object_td">Libellé</th>
+                    <th class="object_td">Type</th>
+                    <th class="object_td">Description</th>
+                    <th class="object_td">Lieu</th>
+        			<th class="object_td">Pièce</th>
+                    <th class="object_td">Appartement</th>
         		</tr>
         	</thead>
         	<tbody>	
@@ -33,22 +33,22 @@
             <?php foreach ($afficherAppareils as $element) { ?>
             
                 <tr> 
-                    <td class="appareil_td">
+                    <td class="object_td">
         		    <?php echo $element['libelleAppareil']; ?>
                     </td>
-                    <td class="appareil_td">
+                    <td class="object_td">
                 	<?php echo $element['nomTypeAppareil']; ?>
                     </td>
-                    <td class="appareil_td">
+                    <td class="object_td">
                     <?php echo $element['descriptionAppareil']; ?>
                     </td>
-                    <td class="appareil_td">
+                    <td class="object_td">
                     <?php echo $element['lieuAppareil']; ?>
                     </td>
-                    <td class="appareil_td">
+                    <td class="object_td">
                 	<?php echo $element['libellePiece']; ?>
                     </td>
-                    <td class="appareil_td">
+                    <td class="object_td">
                     <?php echo $element['libelleAppartement']; ?>
                     </td>
                     <?php

@@ -16,16 +16,16 @@
         <p><?php echo $entete; ?></p>
 
 
-        <table class="maison_table">
+        <table class="object_table">
         	<thead>
         		<tr>
 
-        			<th class="maison_td">Maison</th>
-        			<th class="maison_td">Degré d'Isolation</th>
-        			<th class="maison_td">Evaluation de base</th>
-                    <th class="maison_td">Date de début de propriété</th>
-                    <th class="maison_td">Date de fin de propriété</th>
-                    <th class="maison_td">Adresse</th>
+        			<th class="object_td">Maison</th>
+        			<th class="object_td">Degré d'Isolation</th>
+        			<th class="object_td">Evaluation de base</th>
+                    <th class="object_td">Date de début de propriété</th>
+                    <th class="object_td">Date de fin de propriété</th>
+                    <th class="object_td">Adresse</th>
         		</tr>
         	</thead>
         	<tbody>	
@@ -33,22 +33,22 @@
             <?php foreach ($afficherMaisons as $element) { ?>
             
                 <tr> 
-                    <td class="maison_td">
+                    <td class="object_td">
         		    <?php echo $element['nomMaison']; ?>
                     </td>
-                    <td class="maison_td">
+                    <td class="object_td">
                 	<?php echo $element['degreIsolation']; ?>
                     </td>
-                    <td class="maison_td">
+                    <td class="object_td">
                 	<?php echo $element['evaluationBase']; ?>
                     </td>
-                    <td class="maison_td">
+                    <td class="object_td">
                     <?php echo $element['dateDebutPropriete']; ?>
                     </td>
-                    <td class="maison_td">
+                    <td class="object_td">
                     <?php echo $element['dateFinPropriete']; ?>
                     </td>
-                    <td class="maison_td">
+                    <td class="object_td">
                     <?php echo $element['numMaison']," ", $element['rue']," ", $element['code_postal']," ", $element['nom_ville']," ", $element['nomDepartement']," ", $element['nomRegion']; ?>
                     </td>
                     <?php

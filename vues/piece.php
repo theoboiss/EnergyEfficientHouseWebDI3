@@ -16,12 +16,12 @@
         <p><?php echo $entete; ?></p>
 
 
-        <table class="appareil_table">
+        <table class="object_table">
         	<thead>
         		<tr>
 
-        			<th class="appareil_td">Libellé</th>
-                    <th class="appareil_td">Type</th>
+        			<th class="object_td">Libellé</th>
+                    <th class="object_td">Type</th>
 
         		</tr>
         	</thead>
@@ -30,10 +30,10 @@
             <?php foreach ($afficherPieces as $element) { ?>
             
                 <tr> 
-                    <td class="appareil_td">
+                    <td class="object_td">
         		    <?php echo $element['libellePiece']; ?>
                     </td>
-                    <td class="appareil_td">
+                    <td class="object_td">
                 	<?php echo $element['libelle_type_piece']; ?>
                     </td>
                     <?php
