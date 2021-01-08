@@ -24,15 +24,17 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($afficherRessources as $element) { ?>
+                <?php foreach($affRessources as $element) { ?>
                 <tr>
                     <td class="object_td"><?php echo $element['libelle']; ?></td>
                     <td class="object_td"><?php echo $element['description']; ?></td>
                     <td class="object_td"><?php echo $element['valCrit']; ?></td>
                     <td class="object_td"><?php echo $element['valIdeale']; ?></td>
+                </tr>
                 <?php } ?>
             </tbody>
             <?php echo AfficheAlerte($alerte); ?>
+        </table>
     </body>
         
 </html>

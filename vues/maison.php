@@ -53,6 +53,7 @@
                     </td>
                     <?php
                     echo '<td><a href="index.php?cible=maisons&fonction=modifier&id='.$element['Id_Maison'].'">Modifier</a></td>';
+                    echo '<td><a href="index.php?cible=datePropriete&fonction=modifier&id='.$element['Id_Maison'].'&datefin='.$element['dateFinPropriete'].'">Modifier la date de fin de propriété</a></td>';
                     ?>
                 </tr>
             

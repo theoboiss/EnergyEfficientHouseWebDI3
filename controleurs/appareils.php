@@ -153,6 +153,8 @@ switch ($function) {
                 
                 if ($modifierAppareil) {
                     $alerte = "Modification réussie";
+                    header('Location: index.php?cible=appareils&fonction=afficherAppareils');
+                    exit();
                 } else {
                     $alerte = "La modifiaction dans la BDD n'a pas fonctionné";
                 }

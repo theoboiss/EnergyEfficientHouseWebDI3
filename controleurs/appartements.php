@@ -125,6 +125,8 @@ switch ($function) {
                 
                 if ($modifierAppartement) {
                     $alerte = "Modification réussie";
+                    header('Location: index.php?cible=appartements&fonction=afficherAppartements');
+                    exit();
                 } else {
                     $alerte = "La modification dans la BDD n'a pas fonctionné";
                 }

@@ -66,6 +66,36 @@ switch ($function) {
         }
         
         break;
+
+    case 'modifier':
+    //Ajouter une nouvel appartement
+        
+        $title = "Modifier une date de location";
+        $vue = "modif_dateLocation";
+        $alerte = false;
+
+
+
+        // Cette partie du code est appelée si le formulaire a été posté
+        if(isset($_POST['dateFin'])) {
+
+            $values = [
+                'dateFinLocation' => $_POST['dateFin']
+            ];
+                    
+            // Appel à la BDD à travers une fonction du modèle.
+            $modifLocation = modifLocation($bdd, $values, ['Id_Appartement' => $_GET['id'], 'dateFinLocation' => $_GET['datefin'], 'Id_Utilisateur' => $_SESSION['id']]);
+                    
+            if ($modifLocation) {
+                $alerte = "Modification réussie";
+                //header('Location: index.php?cible=appartements&fonction=afficherAppartements');
+                //exit();
+            } else {
+                $alerte = "La modification dans la BDD n'a pas fonctionné";
+            }
+        }
+        
+        break;
      
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
