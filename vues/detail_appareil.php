@@ -29,7 +29,6 @@
                     <td class="object_td"><?php echo $affRessources[4]; ?></td>
                     <td class="object_td"><?php echo $affRessources[5]; ?></td>
                     <td class="object_td"><?php echo $affRessources[6]; ?></td>
-                <?php } ?>
             </tbody>
             <?php echo AfficheAlerte($alerte); ?>
     </body>
