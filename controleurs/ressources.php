@@ -23,9 +23,11 @@ switch ($function) {
         
         $affRessources = afficherRessources($bdd);
         
-        if($affRessources && mysqli_num_rows($affRessources) <= 0) {
-            $alerte = "Aucune ressources répertorié pour le moment";
+        if($affRessources) {                
             $affRessources = $affRessources->fetch_row();
+            if (mysqli_num_rows($affRessources) <= 0) {
+                $alerte = "Aucune ressources répertorié pour le moment";
+            }
         }
         
         
