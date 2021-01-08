@@ -21,4 +21,5 @@ include("modele/connexion.php");
                                                                                         WHERE Id_Utilisateur = 2 AND ((dateFinLocation IS NULL) OR (DATE(NOW()) BETWEEN dateDebutLocation AND dateFinLocation)))) ORDER BY Id_Piece');
 
     return mysqli_query($bdd, $query);
+ }
 ?>
