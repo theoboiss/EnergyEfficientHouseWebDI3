@@ -36,7 +36,7 @@ switch ($function) {
         $vue = "erreur404";
         $title = "error404";
         $message = "Erreur 404 : la page recherchée n'existe pas.";
-        
+}
         
         
         
