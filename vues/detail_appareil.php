@@ -34,6 +34,7 @@
                 <?php } ?>
             </tbody>
             <?php echo AfficheAlerte($alerte); ?>
+        </table>
     </body>
         
 </html>
