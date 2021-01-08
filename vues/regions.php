@@ -41,4 +41,4 @@
 <?php echo AfficheAlerte($alerte); ?>
 
 
-<p><a href="index.php?cible=region&fonction=ajout">Ajouter une région</a> | <a href="index.php?cible=region&fonction=recherche">Chercher une région</a> | <a href="index.php">Accueil</a></p>
+<p><a href="index.php?cible=region&fonction=ajout">Ajouter une région</a> | <a href="index.php?cible=region&fonction=recherche">Chercher une région</a></p>

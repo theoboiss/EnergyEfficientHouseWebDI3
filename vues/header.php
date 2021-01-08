@@ -20,7 +20,7 @@
         <form method="get" name="logInOut">
             <button type="submit" value="connexion_inscription" name="cible">Connexion/Deconnexion</button>
         </form>
-        <?php echo '<h1>' . $title . '</h1>'; ?>
+        <?php echo '<h1 class="title">' . $title . '</h1>'; ?>
     </header>
     
     

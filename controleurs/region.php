@@ -16,6 +16,12 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
     $alerte = "";
 }
 
+if(isset($_GET['modif'])){
+    $alerte = "Modification réussite";
+}else if(isset($_GET['ajout'])){
+    $alerte = "Ajout réussie";
+}
+
 switch ($function) {
     
     case 'liste':
@@ -65,6 +71,8 @@ switch ($function) {
                 
                 if ($retour) {
                     $alerte = "Ajout réussie";
+                    header('Location: index.php?cible=region&ajout');
+                    exit();
                 } else {
                     $alerte = "L'ajout dans la BDD n'a pas fonctionné";
                 }
@@ -87,6 +95,8 @@ switch ($function) {
                 $modifRegion = metAJour($bdd, "region", ['nomRegion' => $_POST['libelle']], ['Id_Region' => $_GET['id']]);
                 if($modifRegion){
                     $alerte = "Modification réussite";
+                    header('Location: index.php?cible=region&modif');
+                    exit();
                 }else{
                     $alerte = "Échec de la modification dans la BDD";
                 }
