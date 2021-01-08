@@ -21,11 +21,14 @@ switch ($function) {
         
         $entete = "Voici la liste des ressources :";
         
-        $afficherRessources = afficherRessources($bdd);
+        $affRessources = afficherRessources($bdd);
         
-        if(mysqli_num_rows($afficherRessources) <= 0) {
-            $alerte = "Aucun appareil répertorié pour le moment";
+        if($affRessources && mysqli_num_rows($affRessources) <= 0) {
+            $alerte = "Aucune ressources répertorié pour le moment";
+            $affRessources = $affRessources->fetch_row();
         }
+        
+        
         
         break;
         
@@ -36,7 +39,7 @@ switch ($function) {
         $vue = "erreur404";
         $title = "error404";
         $message = "Erreur 404 : la page recherchée n'existe pas.";
-        
+}
         
         
         
