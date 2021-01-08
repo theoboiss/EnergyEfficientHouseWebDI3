@@ -21,7 +21,7 @@ switch ($function) {
         
         $entete = "Voici la liste des ressources :";
         
-        $afficherRessources = afficherRessources($bdd);
+        $affRessources = afficherRessources($bdd);
         
         if($afficherRessources && mysqli_num_rows($afficherRessources) <= 0) {
             $alerte = "Aucun appareil répertorié pour le moment";
