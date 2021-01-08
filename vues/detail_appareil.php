@@ -26,10 +26,10 @@
             <tbody>
                 <?php foreach($affRessources as $element) { ?>
                 <tr>
-                    <td class="object_td"><?php echo $element[3]; ?></td>
-                    <td class="object_td"><?php echo $element[4]; ?></td>
-                    <td class="object_td"><?php echo $element[5]; ?></td>
-                    <td class="object_td"><?php echo $element[6]; ?></td>
+                    <td class="object_td"><?php echo $element['libelle']; ?></td>
+                    <td class="object_td"><?php echo $element['description']; ?></td>
+                    <td class="object_td"><?php echo $element['valCrit']; ?></td>
+                    <td class="object_td"><?php echo $element['valIdeale']; ?></td>
                 </tr>
                 <?php } ?>
             </tbody>
