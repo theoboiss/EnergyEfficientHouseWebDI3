@@ -16,6 +16,12 @@ if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
     $alerte = "";
 }
 
+if(isset($_GET['modif'])){
+    $alerte = "Modification réussite";
+}else if(isset($_GET['ajout'])){
+    $alerte = "Ajout réussie";
+}
+
 switch ($function) {
     
     case 'liste':
@@ -75,6 +81,8 @@ switch ($function) {
                 
                 if ($retour) {
                     $alerte = "Ajout réussie";
+                    header('Location: index.php?cible=ville&ajout');
+                    exit();
                 } else {
                     $alerte = "L'ajout dans la BDD n'a pas fonctionné";
                 }
@@ -101,6 +109,8 @@ switch ($function) {
                 $modifDept = metAJour($bdd, "ville", ['nom_ville' => $_POST['libelle'], 'code_postal' => $_POST['code_postal'], 'Id_Departement' => $_POST['id_departement']], ['Id_Ville' => $_GET['id']]);
                 if($modifDept){
                     $alerte = "Modification réussite";
+                    header('Location: index.php?cible=ville&modif');
+                    exit();
                 }else{
                     $alerte = "Échec de la modification dans la BDD";
                 }

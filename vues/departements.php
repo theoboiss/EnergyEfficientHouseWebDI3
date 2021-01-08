@@ -46,4 +46,4 @@
 <?php echo AfficheAlerte($alerte); ?>
 
 
-<p><a href="index.php?cible=departement&fonction=ajout">Ajouter un département</a> | <a href="index.php?cible=departement&fonction=recherche">Chercher un département</a> | <a href="index.php">Accueil</a></p>
+<p><a href="index.php?cible=departement&fonction=ajout">Ajouter un département</a> | <a href="index.php?cible=departement&fonction=recherche">Chercher un département</a></p>

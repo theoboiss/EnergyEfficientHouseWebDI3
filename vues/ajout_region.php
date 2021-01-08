@@ -23,4 +23,4 @@
 </form>
 </fieldset>
 
-<p><a href="index.php?cible=region">Retour</a> | <a href="index.php">Accueil</a></p>
+<p><a href="index.php?cible=region">Retour</a></p>

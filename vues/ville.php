@@ -49,4 +49,4 @@
 <?php echo AfficheAlerte($alerte); ?>
 
 
-<p><a href="index.php?cible=ville&fonction=ajout">Ajouter une ville</a> | <a href="index.php?cible=ville&fonction=recherche">Chercher une ville</a> | <a href="index.php">Accueil</a></p>
+<p><a href="index.php?cible=ville&fonction=ajout">Ajouter une ville</a> | <a href="index.php?cible=ville&fonction=recherche">Chercher une ville</a></p>
