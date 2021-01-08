@@ -18,7 +18,7 @@ include("modele/connexion.php");
                                                                FROM piece NATURAL JOIN appartement
                                                                WHERE Id_Appartement IN (SELECT Id_Appartement
                                                                                         FROM appartement NATURAL JOIN locataire
-                                                                                        WHERE Id_Utilisateur = 2 AND ((dateFinLocation IS NULL) OR (DATE(NOW()) BETWEEN dateDebutLocation AND dateFinLocation)))) ORDER BY Id_Piece');
+                                                                                        WHERE Id_Utilisateur = 2 AND ((dateFinLocation IS NULL) OR (DATE(NOW()) BETWEEN dateDebutLocation AND dateFinLocation)))) ORDER BY Id_Piece';
 
     return mysqli_query($bdd, $query);
  }
