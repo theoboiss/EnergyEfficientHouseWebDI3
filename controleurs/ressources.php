@@ -16,10 +16,10 @@ switch ($function) {
 
     case 'afficherRessources';
     
-        $vue = "appareil";
-        $title = "Mes Appareils";
+        $vue = "detail_appareil";
+        $title = "Mes ressources";
         
-        $entete = "Voici la liste de vos appareils :";
+        $entete = "Voici la liste des ressources :";
         
         $afficherRessources = afficherRessources($bdd);
         
