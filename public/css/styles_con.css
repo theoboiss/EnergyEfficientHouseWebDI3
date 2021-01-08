@@ -43,37 +43,37 @@ and open the template in the editor.
 
 @font-face {
     font-family: "Lemonada";
-    src: url(../font/Lemonada-Regular.ttf) format("ttf");
+    src: url(../font/Lemonada-Regular.ttf) format('truetype');
 }
 
 @font-face {
     font-family: "Lemonada";
     font-weight: bold;
-    src: url(../font/Lemonada-Bold.ttf) format("ttf");
+    src: url(../font/Lemonada-Bold.ttf) format('truetype');
 }
 
 @font-face {
     font-family: "DMSans";
-    src: url(../font/DMSans-Regular.ttf) format("ttf");
-}
-
-@font-face {
-    font-family: "DMSans";
-    font-weight: bold;
-    src: url(../font/DMSans-Bold.ttf) format("ttf");
-}
-
-@font-face {
-    font-family: "DMSans";
-    font-style: italic;
-    src: url(../font/DMSans-Italic.ttf) format("ttf");
+    src: url(../font/DMSans-Regular.ttf) format('truetype');
 }
 
 @font-face {
     font-family: "DMSans";
     font-weight: bold;
+    src: url(../font/DMSans-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DMSans";
     font-style: italic;
-    src: url(../font/DMSans-BoldItalic.ttf) format("ttf");
+    src: url(../font/DMSans-Italic.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "DMSans";
+    font-weight: bold;
+    font-style: italic;
+    src: url(../font/DMSans-BoldItalic.ttf) format('truetype');
 }
 
 /*Style CSS de la page*/
@@ -82,7 +82,7 @@ and open the template in the editor.
 {
     color: black;
     text-align: center;
-    font-family: "DMSans", sans-serif;
+    font-family: DMSans, sans-serif;
 }
 
 footer{
@@ -98,7 +98,7 @@ header{
 }
 
 .title{
-    font-family: "Lemonada", cursive;
+    font-family: Lemonada, cursive;
 }
 
 .object_table {
@@ -127,6 +127,8 @@ header{
 
 #menu_accueil {
     font-size : 20px;
+    background-color: white;
+    opacity: 0.66;
 }
 /*
 #banniere{
