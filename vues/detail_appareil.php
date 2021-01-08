@@ -24,12 +24,11 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($affRessources as $element) { ?>
                 <tr>
-                    <td class="object_td"><?php echo $element['libelle']; ?></td>
-                    <td class="object_td"><?php echo $element['description']; ?></td>
-                    <td class="object_td"><?php echo $element['valCrit']; ?></td>
-                    <td class="object_td"><?php echo $element['valIdeale']; ?></td>
+                    <td class="object_td"><?php echo $affRessources[3]; ?></td>
+                    <td class="object_td"><?php echo $affRessources[4]; ?></td>
+                    <td class="object_td"><?php echo $affRessources[5]; ?></td>
+                    <td class="object_td"><?php echo $affRessources[6]; ?></td>
                 <?php } ?>
             </tbody>
             <?php echo AfficheAlerte($alerte); ?>
