@@ -23,7 +23,7 @@ switch ($function) {
         
         $affRessources = afficherRessources($bdd);
         
-        if($afficherRessources && mysqli_num_rows($afficherRessources) <= 0) {
+        if($affRessources && mysqli_num_rows($affRessources) <= 0) {
             $alerte = "Aucun appareil répertorié pour le moment";
         }
         
