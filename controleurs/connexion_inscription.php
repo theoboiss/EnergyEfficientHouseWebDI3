@@ -10,7 +10,7 @@
 include('./modele/requetes.connexion_inscription.php');
 
 if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
-    $_SESSION['etat'] = etatUtilisateurDDB($bdd, 'inactif', $_SESSION['id']);
+    $_SESSION['etat'] = setEtatUtilisateurDDB($bdd, 'inactif', $_SESSION['id']);
     if (session_unset()) {
         $alerte = "Deconnecte";
     }
@@ -53,9 +53,12 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
                         } else if ($nbComptes == 1) {
                             $_SESSION['id'] = $result->fetch_row()[0];
                             $_SESSION['name'] = $nomUser;
+                            $_SESSION['etat'] = setEtatUtilisateurDDB($bdd, 'actif', $_SESSION['id']);
 
-                            $_SESSION['etat'] = etatUtilisateurDDB($bdd, 'actif', $_SESSION['id']);
                             $alerte = "Connecte en tant que " . $_SESSION['name'];
+                            
+                            include("admin.php");
+                            if ($_SESSION['admin']) $alerte = $alerte . " (Administrateur)";
 
                             $vue = "accueil";
                             $title = "Accueil";
@@ -118,9 +121,12 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
                                 if ($result && mysqli_num_rows($result) == 1) {
                                     $_SESSION['id'] = $result->fetch_row()[0];
                                     $_SESSION['name'] = $nomUser;
+                                    $_SESSION['etat'] = setEtatUtilisateurDDB($bdd, 'actif', $_SESSION['id']);
 
-                                    $_SESSION['etat'] = etatUtilisateurDDB($bdd, 'actif', $_SESSION['id']);
                                     $alerte = "Connecte en tant que " . $_SESSION['name'];
+                                    
+                                    include("admin.php");
+                                    if ($_SESSION['admin']) $alerte = $alerte . " (Administrateur)";
 
                                     $vue = "accueil";
                                     $title = "Accueil";
