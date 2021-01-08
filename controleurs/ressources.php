@@ -27,7 +27,6 @@ switch ($function) {
             if (mysqli_num_rows($affRessources) <= 0) {
                 $alerte = "Aucune ressources répertorié pour le moment";
             }
-            $affRessources = $affRessources->fetch_row();
         }
         
         
