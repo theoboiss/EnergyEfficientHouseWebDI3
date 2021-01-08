@@ -53,6 +53,7 @@
                     <?php
                     echo '<td><a href="index.php?cible=pieces&fonction=afficherPieces&id='.$element['Id_Appartement'].'">Pièces</a></td>';
                     echo '<td><a href="index.php?cible=appartements&fonction=modifier&id='.$element['Id_Appartement'].'">Modifier</a></td>';
+                    echo '<td><a href="index.php?cible=dateLocation&fonction=modifier&id='.$element['Id_Appartement'].'&datefin='.$element['dateFinLocation'].'"">Modifier la date de fin de location</a></td>';
                     ?>
                 </tr>
             

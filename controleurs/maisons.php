@@ -84,9 +84,9 @@ switch ($function) {
 
     case 'modifier':
 
-        //Modifier un appartement existant
+        //Modifier une maison existante
         
-        $title = "Modifier un appartement";
+        $title = "Modifier une maison";
         $vue = "modifier_maison";
         $alerte = false;
         $getMaison = getMaison($bdd, $_GET['id']);
@@ -119,6 +119,8 @@ switch ($function) {
                 
                 if ($modifierMaison) {
                     $alerte = "Modification réussie";
+                    header('Location: index.php?cible=maisons&fonction=afficherMaisons');
+                    exit();
                 } else {
                     $alerte = "La modification dans la BDD n'a pas fonctionné";
                 }
