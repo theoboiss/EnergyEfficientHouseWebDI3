@@ -38,7 +38,7 @@ function modifPropriete(mysqli $bdd, array $values, array $eqConditions): bool {
         $attributs .= $key . ' = "' . $value . '", ';
     }
     foreach($eqConditions as $key => $value) {
-        $condition .= $key . ' = ' . $value . ' AND ';
+        $condition .= $key . ' = "' . $value . '" AND ';
     }
     $attributs = substr_replace($attributs, '', -2, 2);
     $condition = substr_replace($condition, '', -5, 5);

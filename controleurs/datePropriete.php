@@ -90,7 +90,7 @@ switch ($function) {
             ];
                     
             // Appel à la BDD à travers une fonction du modèle.
-            $modifPropriete = modifPropriete($bdd, $values, ['Id_Maison' => $_GET['id']]);
+            $modifPropriete = modifPropriete($bdd, $values, ['Id_Maison' => $_GET['id'], 'dateDebutPropriete' => $_GET['datedebut'], 'Id_Utilisateur' => $_SESSION['id']]);
                     
             if ($modifPropriete) {
                 $alerte = "Modification réussie";

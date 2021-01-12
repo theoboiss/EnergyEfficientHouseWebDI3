@@ -84,12 +84,12 @@ switch ($function) {
             ];
                     
             // Appel à la BDD à travers une fonction du modèle.
-            $modifLocation = modifLocation($bdd, $values, ['Id_Appartement' => $_GET['id'], 'dateFinLocation' => $_GET['datefin'], 'Id_Utilisateur' => $_SESSION['id']]);
+            $modifLocation = modifLocation($bdd, $values, ['Id_Appartement' => $_GET['id'], 'dateDebutLocation' => $_GET['datedebut'], 'Id_Utilisateur' => $_SESSION['id']]);
                     
             if ($modifLocation) {
                 $alerte = "Modification réussie";
-                //header('Location: index.php?cible=appartements&fonction=afficherAppartements');
-                //exit();
+                header('Location: index.php?cible=appartements&fonction=afficherAppartements');
+                exit();
             } else {
                 $alerte = "La modification dans la BDD n'a pas fonctionné";
             }
