@@ -5,6 +5,16 @@
  */
 
 // on inclut le fichier modèle contenant les appels à la BDD
+if(!isset($_SESSION['etat'])) {
+    $function = "";
+    $vue = "accueil";
+    $title = "Accueil";
+    $alerte = "Vous devez vous connecter";
+    include('vues/header.php');
+    include('vues/' . $vue . '.php');
+    include('vues/footer.php');
+    exit();
+}
 include('./modele/requetes.connexion_inscription.php');
 
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
