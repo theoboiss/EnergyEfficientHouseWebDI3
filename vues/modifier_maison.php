@@ -19,7 +19,7 @@
 
             <?php foreach ($getMaison as $element) echo '<p><label for="nomMaison">Nom :</label>
             <input type="text" id="nomMaison"  name="nomMaison" 
-                   value =' . $element['nomMaison'] . ' required=""/></p>
+                   value ="' . $element['nomMaison'] . '" required=""/></p>
 
             <p><label for="degreIsolation">Degré d\'isolation :</label>
             <input type="int" id="degreIsolation"  name="degreIsolation" 

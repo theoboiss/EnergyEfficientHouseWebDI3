@@ -19,19 +19,19 @@
 
             <?php foreach ($getAppareil as $element) echo '<p><label for="id_libelle">Libellé :</label>
             <input type="text" id="id_libelle"  name="libelle" 
-                   value='. $element['libelleAppareil'] . ' required=""/></p>
+                   value="'. $element['libelleAppareil'] . '" required=""/></p>
 
             <p><label for="id_lieu">Lieu :</label>
             <input type="text" id="id_lieu"  name="lieu" 
-                   value='. $element['lieuAppareil'] . ' required=""/></p>
+                   value="'. $element['lieuAppareil'] . '" required=""/></p>
 
             <p><label for="id_description">Description :</label>
             <input type="text" id="id_description"  name="description" 
-                   value=' . $element['descriptionAppareil'] . '/></p>
+                   value="' . $element['descriptionAppareil'] . '"/></p>
 
             <p><label for="id_video">Vidéo :</label>
             <input type="text" id="id_video"  name="video" 
-                   value=' . $element['videoAppareil'] . '/></p>
+                   value="' . $element['videoAppareil'] . '"/></p>
 
             <p><label for="Id_TypeAppareil">Type</label>
             <select id="Id_TypeAppareil" name="Id_TypeAppareil" >

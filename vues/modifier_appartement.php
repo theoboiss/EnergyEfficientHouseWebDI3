@@ -19,7 +19,7 @@
 
             <?php foreach ($getAppartement as $element) echo '<p><label for="id_libelle">Libellé :</label>
             <input type="text" id="id_libelle"  name="libelle" 
-                   value =' . $element['libelleAppartement'] . ' required=""/></p>
+                   value ="' . $element['libelleAppartement'] . '" required=""/></p>
 
             <p><label for="degreSecuriteAppartement">Degré de sécurité :</label>
             <input type="text" id="degreSecuriteAppartement"  name="degreSecuriteAppartement" 

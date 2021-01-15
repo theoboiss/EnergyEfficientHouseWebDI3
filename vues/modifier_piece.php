@@ -19,7 +19,7 @@
 
             <?php foreach ($getPiece as $element) echo '<p><label for="id_libelle">Libellé :</label>
             <input type="text" id="id_libelle"  name="libellePiece" 
-                   value =' . $element['libellePiece'] . ' required=""/></p>
+                   value ="' . $element['libellePiece'] . '" required=""/></p>
 
             <p><label for="Id_Type_Piece">Type :</label>
             <select id="Id_Type_Piece" name="typePiece" >
