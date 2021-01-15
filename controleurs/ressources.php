@@ -1,6 +1,16 @@
 <?php
 
 //On inclut les appels aux données
+if(!isset($_SESSION['etat'])) {
+    $function = "";
+    $vue = "accueil";
+    $title = "Accueil";
+    $alerte = "Vous devez vous connecter";
+    include ('vues/header.php');
+    include ('vues/' . $vue . '.php');
+    include ('vues/footer.php');
+    exit();
+}
 include('./modele/requetes.afficher_ajouter_ressources.php');
 
 // si la fonction n'est pas définie, on choisit d'afficher l'accueil
