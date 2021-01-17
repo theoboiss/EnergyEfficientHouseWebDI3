@@ -38,12 +38,22 @@ switch ($function) {
                 $alerte = "Aucune ressources répertorié pour le moment";
             }
         }
-        
-        
-        
         break;
         
+    case 'afficherStat';
+        $vue = "ressource_par_app";
+        $title = "Statistiques de l'appareil";
         
+        $entete = "Voici les statistiques de votre appareil :";
+        
+        $affStat = afficherStat($bdd);
+        
+        if($affStat) {
+            if (mysqli_num_rows($affStat) <= 0) {
+                $alerte = "Aucune ressources répertorié pour le moment";
+            }
+        }
+        break;
         
     default:
         // si aucune fonction ne correspond au paramètre function passé en GET
