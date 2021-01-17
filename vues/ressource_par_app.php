@@ -16,4 +16,4 @@
 
         <p><?php echo $entete; ?></p>
         
-        <?php foreach($affStat as $element) { ?>
+        
