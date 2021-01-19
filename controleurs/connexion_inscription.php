@@ -11,10 +11,7 @@ include('./modele/requetes.connexion_inscription.php');
 
 if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
     $_SESSION['etat'] = setEtatUtilisateurDDB($bdd, 'inactif', $_SESSION['id']);
-    if (session_unset()) {
-        $alerte = "Deconnecte";
-    }
-
+    if (session_unset()) $alerte = "Deconnecte";
     $function = "";
     $vue = "accueil";
     $title = "Accueil";
