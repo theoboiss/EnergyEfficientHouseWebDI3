@@ -13,8 +13,3 @@ function AfficheAlerte(?string $alerte) {
         return "<p><strong><i>{$alerte}</i></strong></p>";
     }
 }
-
-function estConnecte(): int {
-    if (isset($_SESSION['etat'])) return ($_SESSION['etat'] == 'actif');
-    else return 0;
-}

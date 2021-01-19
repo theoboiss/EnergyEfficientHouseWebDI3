@@ -56,9 +56,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
                             $_SESSION['etat'] = setEtatUtilisateurDDB($bdd, 'actif', $_SESSION['id']);
 
                             $alerte = "Connecte en tant que " . $_SESSION['name'];
-                            
                             include("admin.php");
-                            if ($_SESSION['admin']) $alerte = $alerte . " (Administrateur)";
 
                             $vue = "accueil";
                             $title = "Accueil";
@@ -124,9 +122,7 @@ if (isset($_SESSION['etat']) && $_SESSION['etat'] == 'actif') {
                                     $_SESSION['etat'] = setEtatUtilisateurDDB($bdd, 'actif', $_SESSION['id']);
 
                                     $alerte = "Connecte en tant que " . $_SESSION['name'];
-                                    
                                     include("admin.php");
-                                    if ($_SESSION['admin']) $alerte = $alerte . " (Administrateur)";
 
                                     $vue = "accueil";
                                     $title = "Accueil";

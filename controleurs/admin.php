@@ -26,12 +26,8 @@ foreach ($idAdmins as $element) {
     }
 }
 
-if ($isAdmin) {
-    $_SESSION['admin'] = true;
-}
-else {
-    $_SESSION['admin'] = false;
-}
+$_SESSION['admin'] = $isAdmin;
+if ($_SESSION['admin'] && isset($alerte)) $alerte = $alerte . " (Administrateur)";
 
 
 ?>

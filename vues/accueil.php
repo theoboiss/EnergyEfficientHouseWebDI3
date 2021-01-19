@@ -14,7 +14,7 @@
     	<body>
     		<div id="image_centrale">
     			<div id="menu_accueil">
-					<?php if (estConnecte()) echo '
+					<?php if (isset($_SESSION['etat'])) echo '
 					<p><a href="index.php?cible=profil">Mon profil</a></p>
 					<p><a href="index.php?cible=principal&fonction=parametrage">Gestion des entités paramétrables</a></p>
 					<p><a href="index.php?cible=appareils&fonction=afficherAppareils">Mes Appareils</a></p>
