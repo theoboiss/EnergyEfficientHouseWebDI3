@@ -3,7 +3,7 @@
 /**
  * Contrôleur des connexions Utilisateur
  * 
- * Après s'être connecté, l'utilisateur se voit attribué les variables de session 'id', 'name' et 'etat'. Il les perd s'il se déconnecte.
+ * Après s'être connecté, l'utilisateur se voit attribué les variables de session 'id', 'name', 'etat' et 'admin'. Il les perd s'il se déconnecte.
  */
 
 // on inclut le fichier modèle contenant les appels à la BDD
