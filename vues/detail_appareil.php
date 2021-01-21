@@ -24,27 +24,16 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- <?php switch ($function) { 
-                        case 'afficherRessources': -->
-        
-                            foreach($affRessources as $element) { ?>
+                <?php switch ($function) { 
+                        foreach($affRessources as $element) { ?>
                                 <tr>
                                     <td class="object_td"><?php echo $element['libelle']; ?></td>
                                     <td class="object_td"><?php echo $element['description']; ?></td>
                                     <td class="object_td"><?php echo $element['valCrit']; ?></td>
                                     <td class="object_td"><?php echo $element['valIdeale']; ?></td>
                                 </tr>
-                        <?php  } 
-                            <!-- break;
-                        case 'afficherStat':
-                            foreach($affStat as $element) { ?>
-                                <tr>
-                                    <td class="object_td"><?php echo $element['Id_Appareil']; ?></td>
-                                    <td class="object_td"><?php echo $element['Id_Matiere']; ?></td>
-                                    <td class="object_td"><?php echo $element['consommation']; ?></td>
-                                </tr>
-                        <?php }
-                            break; } ?> -->
+                        <?php  }  ?>
+
             </tbody>
             <?php echo AfficheAlerte($alerte); ?>
         </table>
