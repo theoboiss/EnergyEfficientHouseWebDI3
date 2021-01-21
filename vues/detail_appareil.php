@@ -24,8 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php switch ($function) { 
-                        foreach($affRessources as $element) { ?>
+                        <?php foreach($affRessources as $element) { ?>
                                 <tr>
                                     <td class="object_td"><?php echo $element['libelle']; ?></td>
                                     <td class="object_td"><?php echo $element['description']; ?></td>
