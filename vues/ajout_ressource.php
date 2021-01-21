@@ -48,8 +48,6 @@
                 ?>
             </select></p>
 
-            <p><label for="Id_Piece">Piece</label>
-
             <p><button type="submit" id="id_ajout" name="submit">Ajouter</button></p>
 
         </form>
