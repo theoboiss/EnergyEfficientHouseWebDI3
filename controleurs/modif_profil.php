@@ -15,7 +15,7 @@ if(!isset($_SESSION['etat'])) {
     include('vues/footer.php');
     exit();
 }
-include('./modele/requetes.connexion_inscription.php');
+include('./modele/requetes.profil.php');
 
 if (!isset($_GET['fonction']) || empty($_GET['fonction'])) {
     $vue = "modif_profil";
@@ -89,7 +89,12 @@ if (isset($_POST['nomUser'])
                             exit();
                         }
                     }
-                    if (!isset($message)) $message = "Aucun changements";
+                    if (!isset($message))
+                    {
+                        $message = "Aucun changements";
+                        header('Location: index.php?cible=profil&nomodif');
+                        exit();
+                    }
 
                 } else {
                     $nomUser = $infos[1];

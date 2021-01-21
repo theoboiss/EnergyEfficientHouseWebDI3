@@ -29,8 +29,4 @@ function setEtatUtilisateurDDB($bdd, $etat, $id) {
     return recherche($bdd, 'utilisateur', ['Id_Utilisateur' => $id])->fetch_row()[8];
 }
 
-function getUtilisateur($bdd): array {
-    return recherche($bdd, 'utilisateur', ['Id_Utilisateur' => $_SESSION["id"]])->fetch_row();
-}
-
 ?>
