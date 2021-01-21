@@ -41,7 +41,7 @@ switch ($function) {
         break;
         
     case 'afficherStat';
-        $vue = "ressource_par_app";
+        $vue = "detail_appareil";
         $title = "Statistiques de l'appareil";
         
         $entete = "Voici les statistiques de votre appareil :";
