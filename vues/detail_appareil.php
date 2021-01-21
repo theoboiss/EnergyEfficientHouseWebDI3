@@ -24,8 +24,8 @@
                 </tr>
             </thead>
             <tbody>
-                <?php switch ($function) {
-                        case 'afficherRessources':
+                <!-- <?php switch ($function) { 
+                        case 'afficherRessources': -->
         
                             foreach($affRessources as $element) { ?>
                                 <tr>
@@ -35,7 +35,7 @@
                                     <td class="object_td"><?php echo $element['valIdeale']; ?></td>
                                 </tr>
                         <?php  } 
-                            break;
+                            <!-- break;
                         case 'afficherStat':
                             foreach($affStat as $element) { ?>
                                 <tr>
@@ -44,7 +44,7 @@
                                     <td class="object_td"><?php echo $element['consommation']; ?></td>
                                 </tr>
                         <?php }
-                            break; } ?>
+                            break; } ?> -->
             </tbody>
             <?php echo AfficheAlerte($alerte); ?>
         </table>
