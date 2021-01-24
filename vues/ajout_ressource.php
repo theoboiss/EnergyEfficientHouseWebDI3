@@ -41,11 +41,6 @@
             <input type="text" id="id_valIdeale"  name="valIdeale" 
                    placeholder="Entrez la valeur idéale de la ressource"/></p>
                    
-                <?php              
-                    foreach ($selectTypeAppareil as $element) { 
-                        echo '<option value="'.$element['Id_Type_Appareil'].'">'.$element['nomTypeAppareil'].'</option>';
-                    }
-                ?>
             </select></p>
 
             <p><button type="submit" id="id_ajout" name="submit">Ajouter</button></p>
